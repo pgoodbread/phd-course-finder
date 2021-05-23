@@ -1,7 +1,5 @@
-import { Course } from ".prisma/client";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useState } from "react";
-import * as yup from "yup";
+import React from "react";
 import { createCourseValidation } from "../../lib/validation";
 
 export default function CreateCourse() {
