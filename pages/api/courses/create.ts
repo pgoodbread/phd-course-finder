@@ -20,6 +20,9 @@ export default async function handler(
   }
 
   const session = await getSession({ req: request });
+  if (!session) {
+    return response.status(401).json("You have to log in to see this page");
+  }
 
   await prisma.course.create({
     data: {

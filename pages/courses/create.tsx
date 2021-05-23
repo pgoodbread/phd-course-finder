@@ -1,8 +1,21 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { GetServerSideProps } from "next";
+import { getSession, useSession } from "next-auth/client";
+import { Router, useRouter } from "next/router";
 import React from "react";
 import { createCourseValidation } from "../../lib/validation";
 
 export default function CreateCourse() {
+  // const [session, loadSession] = useSession();
+  const router = useRouter();
+  // console.log(session);
+  // if (!session && !loadSession) {
+  //   router.replace("/");
+  // }
+
+  // if (loadSession) {
+  //   return <div></div>;
+  // }
   return (
     <div>
       <Formik
@@ -17,11 +30,12 @@ export default function CreateCourse() {
           date: "",
         }}
         validationSchema={createCourseValidation}
-        onSubmit={(values, { setSubmitting }) => {
-          fetch("/api/courses/create", {
+        onSubmit={async (values, { setSubmitting }) => {
+          await fetch("/api/courses/create", {
             method: "POST",
             body: JSON.stringify(values),
           });
+          router.push("/courses");
         }}
       >
         {({ isSubmitting }) => (
@@ -114,3 +128,16 @@ export default function CreateCourse() {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const session = await getSession();
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+  return { props: {} };
+};
