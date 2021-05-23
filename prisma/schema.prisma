@@ -17,6 +17,23 @@ model User {
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @updatedAt @map(name: "updated_at")
   password String
+  courses Course[]
 
   @@map(name: "users")
+}
+
+model Course {
+  id Int @id @default(autoincrement())
+  name String
+  institution String
+  location String?
+  lecturer String?
+  credits String?
+  courseFee Int? @map(name: "course_fee")
+  link String
+  date DateTime
+  creator User @relation(fields: [creatorId], references: [id])
+  creatorId Int 
+
+  @@map(name: "courses")
 }

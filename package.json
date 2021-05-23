@@ -11,6 +11,7 @@
     "@prisma/client": "^2.22.1",
     "@types/bcrypt": "^5.0.0",
     "bcrypt": "^5.0.1",
+    "formik": "^2.2.7",
     "next": "10.2.0",
     "next-auth": "^3.21.0",
     "react": "17.0.2",

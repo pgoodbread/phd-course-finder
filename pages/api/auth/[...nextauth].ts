@@ -3,6 +3,8 @@ import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 import bcrypt from "bcrypt";
 import Adapters from "next-auth/adapters";
+import { User } from ".prisma/client";
+import { session } from "next-auth/client";
 
 const credentials = {
   username: { label: "Username", type: "text", placeholder: "jsmith" },
@@ -16,6 +18,17 @@ type Credentials = {
 
 export default NextAuth({
   // Configure one or more authentication providers
+  callbacks: {
+    async jwt(token, user: User) {
+      console.log(user);
+      token.userId = user.id;
+      return token;
+    },
+    async session(session, token) {
+      session.userId = token.userId;
+      return session;
+    },
+  },
   providers: [
     Providers.Credentials({
       // The name to display on the sign in form (e.g. 'Sign in with...')
