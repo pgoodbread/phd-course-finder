@@ -19,13 +19,15 @@ type Credentials = {
 export default NextAuth({
   // Configure one or more authentication providers
   callbacks: {
-    async jwt(token, user: User) {
-      console.log(user);
+    async jwt(token, user) {
+      if (!user) {
+        return token;
+      }
       token.userId = user.id;
       return token;
     },
     async session(session, token) {
-      session.userId = token.userId;
+      session.user.id = token.userId as number;
       return session;
     },
   },

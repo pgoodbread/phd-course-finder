@@ -1,73 +1,113 @@
+import { Course } from ".prisma/client";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
+import * as yup from "yup";
+import { createCourseValidation } from "../../lib/validation";
 
 export default function CreateCourse() {
   return (
     <div>
       <Formik
         initialValues={{
-          coursename: "",
+          name: "",
           institution: "",
           location: "",
           lecturer: "",
-          credits: "",
-          coursefee: "",
+          credits: 0,
+          fee: 0,
           link: "",
           date: "",
         }}
-        /*           validate={(values) => {
-            const errors = {};
-            if (!values.email) {
-              errors.email = "Required";
-            } else if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
-              errors.email = "Invalid email address";
-            }
-            return errors;
-          }} */
+        validationSchema={createCourseValidation}
         onSubmit={(values, { setSubmitting }) => {
-          fetch("/courses/create", {
+          fetch("/api/courses/create", {
             method: "POST",
             body: JSON.stringify(values),
           });
         }}
       >
         {({ isSubmitting }) => (
-          <Form>
-            <label htmlFor="">coursename</label>
-            <Field type="text" name="coursename" />
-            <ErrorMessage name="coursename" component="div" />
+          <Form className="flex flex-col">
+            <label htmlFor="">Name</label>
+            <Field className="border-black border" type="text" name="name" />
+            <ErrorMessage
+              className="text-red-800"
+              name="name"
+              component="div"
+            />
 
-            <label htmlFor="">institution</label>
-            <Field type="text" name="institution" />
-            <ErrorMessage name="institution" component="div" />
+            <label htmlFor="">Institution</label>
+            <Field
+              className="border-black border"
+              type="text"
+              name="institution"
+            />
+            <ErrorMessage
+              className="text-red-800"
+              name="institution"
+              component="div"
+            />
 
-            <label htmlFor="">location</label>
-            <Field type="text" name="location" />
-            <ErrorMessage name="location" component="div" />
+            <label htmlFor="">Location</label>
+            <Field
+              className="border-black border"
+              type="text"
+              name="location"
+            />
+            <ErrorMessage
+              className="text-red-800"
+              name="location"
+              component="div"
+            />
 
-            <label htmlFor="">lecturer</label>
-            <Field type="text" name="lecturer" />
-            <ErrorMessage name="lecturer" component="div" />
+            <label htmlFor="">Lecturer</label>
+            <Field
+              className="border-black border"
+              type="text"
+              name="lecturer"
+            />
+            <ErrorMessage
+              className="text-red-800"
+              name="lecturer"
+              component="div"
+            />
 
-            <label htmlFor="">date</label>
-            <Field type="date" name="date" />
-            <ErrorMessage name="date" component="div" />
+            <label htmlFor="">Date</label>
+            <Field className="border-black border" type="date" name="date" />
+            <ErrorMessage
+              className="text-red-800"
+              name="date"
+              component="div"
+            />
 
-            <label htmlFor="">link</label>
-            <Field type="text" name="link" />
-            <ErrorMessage name="link" component="div" />
+            <label htmlFor="">Link</label>
+            <Field className="border-black border" type="text" name="link" />
+            <ErrorMessage
+              className="text-red-800"
+              name="link"
+              component="div"
+            />
 
-            <label htmlFor="">coursefee</label>
-            <Field type="text" name="coursefee" />
-            <ErrorMessage name="coursefee" component="div" />
+            <label htmlFor="">Course fee</label>
+            <Field className="border-black border" type="number" name="fee" />
+            <ErrorMessage className="text-red-800" name="fee" component="div" />
 
-            <label htmlFor="">credits</label>
-            <Field type="number" name="credits" />
-            <ErrorMessage name="credits" component="div" />
+            <label htmlFor="">Credits</label>
+            <Field
+              className="border-black border"
+              type="number"
+              name="credits"
+            />
+            <ErrorMessage
+              className="text-red-800"
+              name="credits"
+              component="div"
+            />
 
-            <button type="submit" disabled={isSubmitting}>
+            <button
+              className="bg-blue-500 mt-2 rounded-md text-white w-24"
+              type="submit"
+            >
               Submit
             </button>
           </Form>

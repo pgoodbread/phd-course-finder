@@ -28,12 +28,12 @@ model Course {
   institution String
   location String?
   lecturer String?
-  credits String?
-  courseFee Int? @map(name: "course_fee")
+  credits Int?
+  fee Int? 
   link String
   date DateTime
   creator User @relation(fields: [creatorId], references: [id])
-  creatorId Int 
+  creatorId Int @map(name: "creator_id")
 
   @@map(name: "courses")
 }
