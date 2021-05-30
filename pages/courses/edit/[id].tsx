@@ -1,13 +1,20 @@
-import { User } from ".prisma/client";
+import { Course, User } from ".prisma/client";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { GetServerSidePropsContext } from "next";
 import { getSession, signIn, signOut } from "next-auth/client";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import { createCourseValidation } from "../../lib/validation";
+import prisma from "../../../lib/prisma";
+import { createCourseValidation } from "../../../lib/validation";
 
-export default function CreateCourse({ user }: { user: User }) {
+export default function EditCourse({
+  course,
+  user,
+}: {
+  course: Course;
+  user: User;
+}) {
   const router = useRouter();
 
   return (
@@ -48,19 +55,19 @@ export default function CreateCourse({ user }: { user: User }) {
       </div>
       <Formik
         initialValues={{
-          name: "",
-          institution: "",
-          location: "",
-          lecturer: "",
-          credits: 0,
-          fee: 0,
-          link: "",
-          date: "",
+          name: course.name,
+          institution: course.institution,
+          location: course.location,
+          lecturer: course.lecturer,
+          date: new Date(course.date).toISOString().slice(0, 10),
+          link: course.link,
+          fee: course.fee,
+          credits: course.credits,
         }}
         validationSchema={createCourseValidation}
         onSubmit={async (values, { setSubmitting }) => {
-          await fetch("/api/courses", {
-            method: "POST",
+          await fetch(`/api/courses/${router.query.id}`, {
+            method: "PUT",
             body: JSON.stringify(values),
           });
 
@@ -161,10 +168,10 @@ export default function CreateCourse({ user }: { user: User }) {
   );
 }
 
-export async function getServerSideProps({ req }: GetServerSidePropsContext) {
-  const session = await getSession({ req });
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  const session = await getSession({ req: context.req });
 
-  if (!session) {
+  if (!session || typeof context.query.id !== "string") {
     return {
       redirect: {
         destination: "/",
@@ -173,5 +180,25 @@ export async function getServerSideProps({ req }: GetServerSidePropsContext) {
     };
   }
 
-  return { props: { user: session.user } };
+  const course = await prisma.course.findFirst({
+    where: {
+      AND: [{ creatorId: session.user.id }, { id: context.query.id }],
+    },
+  });
+
+  if (!course) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {
+      course,
+      user: session.user,
+    },
+  };
 }
