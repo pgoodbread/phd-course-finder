@@ -56,12 +56,22 @@ export default function CourseTable({
     );
 
     return filteredCourses.sort((a, b) => {
-      if (a[sortConfig.key]! < b[sortConfig.key]!) {
-        return sortConfig.direction === "ascending" ? -1 : 1;
+      let firstValue = a[sortConfig.key]!;
+      let secondValue = b[sortConfig.key]!;
+
+      if (typeof firstValue === "string" && typeof secondValue === "string") {
+        firstValue = firstValue.toLowerCase().replaceAll(" ", "");
+        secondValue = secondValue.toLowerCase().replaceAll(" ", "");
       }
-      if (a[sortConfig.key]! > b[sortConfig.key]!) {
+
+      if (firstValue > secondValue) {
         return sortConfig.direction === "ascending" ? 1 : -1;
       }
+
+      if (firstValue < secondValue) {
+        return sortConfig.direction === "ascending" ? -1 : 1;
+      }
+
       return 0;
     });
   }, [courses, sortConfig, filterInput]);
