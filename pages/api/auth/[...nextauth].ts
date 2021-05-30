@@ -1,15 +1,8 @@
-import prisma from "../../../lib/prisma";
-import NextAuth from "next-auth";
-import Providers from "next-auth/providers";
 import bcrypt from "bcrypt";
+import NextAuth from "next-auth";
 import Adapters from "next-auth/adapters";
-import { User } from ".prisma/client";
-import { session } from "next-auth/client";
-
-const credentials = {
-  username: { label: "Username", type: "text", placeholder: "jsmith" },
-  password: { label: "Password", type: "password" },
-};
+import Providers from "next-auth/providers";
+import prisma from "../../../lib/prisma";
 
 type Credentials = {
   username: string;
@@ -17,7 +10,9 @@ type Credentials = {
 };
 
 export default NextAuth({
-  // Configure one or more authentication providers
+  pages: {
+    signIn: "/login",
+  },
   callbacks: {
     async jwt(token, user) {
       if (!user) {
@@ -27,21 +22,15 @@ export default NextAuth({
       return token;
     },
     async session(session, token) {
-      session.user.id = token.userId as number;
+      session.user.id = token.userId as string;
       return session;
     },
   },
   providers: [
     Providers.Credentials({
-      // The name to display on the sign in form (e.g. 'Sign in with...')
       name: "Credentials",
-      // The credentials is used to generate a suitable form on the sign in page.
-      // You can specify whatever fields you are expecting to be submitted.
-      // e.g. domain, username, password, 2FA token, etc.
-      credentials,
 
       async authorize(credentials: Credentials) {
-        // Add logic here to look up the user from the credentials supplied
         const salt = await bcrypt.genSalt();
 
         const hash = await bcrypt.hash(credentials.password, salt);

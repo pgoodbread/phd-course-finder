@@ -11,29 +11,29 @@ generator client {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  name String?
-  email String? @unique
+  id        String   @id @default(cuid())
+  name      String?
+  email     String?  @unique
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @updatedAt @map(name: "updated_at")
-  password String
-  courses Course[]
+  password  String
+  courses   Course[]
 
   @@map(name: "users")
 }
 
 model Course {
-  id Int @id @default(autoincrement())
-  name String
+  id          String   @id @default(cuid())
+  name        String
   institution String
-  location String?
-  lecturer String?
-  credits Int?
-  fee Int? 
-  link String
-  date DateTime
-  creator User @relation(fields: [creatorId], references: [id])
-  creatorId Int @map(name: "creator_id")
+  location    String?
+  lecturer    String?
+  credits     Int?
+  fee         Int?
+  link        String
+  date        DateTime
+  creator     User     @relation(fields: [creatorId], references: [id])
+  creatorId   String   @map(name: "creator_id")
 
   @@map(name: "courses")
 }
