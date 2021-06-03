@@ -12,40 +12,6 @@ export default function CreateCourse({ user }: { user: User }) {
 
   return (
     <>
-      <Link href="/">
-        <a>To Home</a>
-      </Link>
-      <div className="flex flex-col">
-        <div className="flex justify-end my-4 mr-4">
-          {!user && (
-            <>
-              Not signed in <br />
-              <button
-                className="border-2 border-black px-4 rounded hover:bg-black hover:text-white ml-2"
-                onClick={() => signIn()}
-              >
-                Sign in
-              </button>
-            </>
-          )}
-          {user && (
-            <>
-              Signed in as {user.email} <br />
-              <button
-                className="border-2 border-black px-4 rounded hover:bg-black hover:text-white ml-2"
-                onClick={() => signOut()}
-              >
-                Sign out
-              </button>
-              <Link href="/courses">
-                <a className="border-2 border-black px-4 rounded hover:bg-black hover:text-white ml-2">
-                  Your courses
-                </a>
-              </Link>
-            </>
-          )}
-        </div>
-      </div>
       <Formik
         initialValues={{
           name: "",
@@ -70,7 +36,7 @@ export default function CreateCourse({ user }: { user: User }) {
         }}
       >
         {({ isSubmitting }) => (
-          <Form className="flex flex-col">
+          <Form className="flex flex-col mt-12">
             <label htmlFor="">Name</label>
             <Field className="border-black border" type="text" name="name" />
             <ErrorMessage

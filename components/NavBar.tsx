@@ -25,11 +25,11 @@ export default function NavBar() {
   const router = useRouter();
 
   navigation.forEach((item) => {
-    if (router.asPath === item.href) item.current = true;
+    item.current = router.asPath === item.href;
   });
 
   return (
-    <Disclosure as="nav" className="bg-white shadow">
+    <Disclosure as="nav" className="shadow border-b-1 border-gray-200">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
