@@ -1,16 +1,15 @@
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Disclosure } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { signIn, signOut, useSession } from "next-auth/client";
-import { PrimaryButton } from ".";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const navigation = [
-  { name: "Home", href: "/", current: true, onlySignedIn: false },
-  { name: "My Courses", href: "/", current: false, onlySignedIn: true },
+  { name: "Home", href: "/", current: false, onlySignedIn: false },
+  { name: "My Courses", href: "/courses", current: false, onlySignedIn: true },
   {
     name: "Create Course",
-    href: "/courses",
+    href: "/courses/create",
     current: false,
     onlySignedIn: true,
   },
@@ -22,6 +21,12 @@ function classNames(...classes: string[]) {
 
 export default function NavBar() {
   const [session] = useSession();
+
+  const router = useRouter();
+
+  navigation.forEach((item) => {
+    if (router.asPath === item.href) item.current = true;
+  });
 
   return (
     <Disclosure as="nav" className="bg-white shadow">
@@ -106,19 +111,19 @@ export default function NavBar() {
           <Disclosure.Panel className="sm:hidden">
             <div className="pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={classNames(
-                    item.current
-                      ? "text-gray-900 border-l-4 border-primary"
-                      : "text-gray-400 hover:text-gray-900",
-                    "block px-3 py-2 text-base font-medium"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
-                >
-                  {item.name}
-                </a>
+                <Link href={item.href} key={item.name}>
+                  <a
+                    className={classNames(
+                      item.current
+                        ? "text-gray-900 border-l-4 border-primary"
+                        : "text-gray-400 hover:text-gray-900",
+                      "block px-3 py-2 text-base font-medium"
+                    )}
+                    aria-current={item.current ? "page" : undefined}
+                  >
+                    {item.name}
+                  </a>
+                </Link>
               ))}
             </div>
           </Disclosure.Panel>
