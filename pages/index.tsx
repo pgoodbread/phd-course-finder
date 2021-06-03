@@ -6,8 +6,7 @@ export default function Home({
   courses,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div className="flex flex-col bg-gray-50">
-      <NavBar />
+    <div className="flex flex-col pt-12">
       <CourseTable courses={courses} className="mt-4 mx-8" />
     </div>
   );
