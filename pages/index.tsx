@@ -1,5 +1,5 @@
 import { InferGetStaticPropsType } from "next";
-import { CourseTable, NavBar } from "../components";
+import { CourseTable } from "../components";
 import prisma from "../lib/prisma";
 
 export default function Home({

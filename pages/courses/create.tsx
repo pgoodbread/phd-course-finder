@@ -1,8 +1,7 @@
 import { User } from ".prisma/client";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { GetServerSidePropsContext } from "next";
-import { getSession, signIn, signOut } from "next-auth/client";
-import Link from "next/link";
+import { getSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import React from "react";
 import { createCourseValidation } from "../../lib/validation";
