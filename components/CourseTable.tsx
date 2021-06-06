@@ -20,7 +20,7 @@ export default function CourseTable({
 }) {
   const [filterInput, setFilterInput] = useState("");
   const [sortConfig, setSortConfig] = useState<SortConfig>({
-    key: "date",
+    key: "start",
     direction: "ascending",
   });
   const router = useRouter();
@@ -150,7 +150,8 @@ export default function CourseTable({
                   <tr>
                     <TableHeader name="name" />
                     <TableHeader name="institution" />
-                    <TableHeader name="date" />
+                    <TableHeader name="start" />
+                    <TableHeader name="end" />
                     <TableHeader name="location" />
                     <TableHeader name="fee" />
                     <TableHeader name="credits" />
@@ -186,7 +187,11 @@ export default function CourseTable({
                       </td>
 
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {course.date.toLocaleDateString()}
+                        {course.start.toLocaleDateString()}
+                      </td>
+
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {course.end.toLocaleDateString()}
                       </td>
 
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -194,7 +199,7 @@ export default function CourseTable({
                       </td>
 
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {course.fee} €
+                        {course.fee !== null ? course.fee + "€" : "-"}
                       </td>
 
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
