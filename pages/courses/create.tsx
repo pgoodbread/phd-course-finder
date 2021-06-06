@@ -17,7 +17,7 @@ export default function CreateCourse({ user }: { user: User }) {
           institution: "",
           location: "",
           lecturer: "",
-          credits: 0,
+          credits: null,
           fee: 0,
           link: "",
           start: "",
@@ -35,7 +35,7 @@ export default function CreateCourse({ user }: { user: User }) {
           setSubmitting(false);
         }}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, handleChange, handleBlur, values }) => (
           <Form className="flex flex-col mt-12">
             <label htmlFor="">Name</label>
             <Field className="border-black border" type="text" name="name" />
@@ -106,10 +106,17 @@ export default function CreateCourse({ user }: { user: User }) {
             <ErrorMessage className="text-red-800" name="fee" component="div" />
 
             <label htmlFor="">Credits</label>
-            <Field
+            <input
+              id="credits"
               className="border-black border"
               type="number"
-              name="credits"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={
+                values.credits === null
+                  ? ""
+                  : (values.credits as unknown as number)
+              }
             />
             <ErrorMessage
               className="text-red-800"

@@ -1,3 +1,4 @@
+import { Course } from ".prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/client";
 import prisma from "../../../lib/prisma";
@@ -18,7 +19,7 @@ async function handleCreate(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-  const body = JSON.parse(request.body);
+  const body: Omit<Course, "creatorId"> = JSON.parse(request.body);
 
   const bodyIsValid = await createCourseValidation.isValid(body);
   if (!bodyIsValid) {
@@ -32,6 +33,7 @@ async function handleCreate(
 
   await prisma.course.create({
     data: {
+      ...body,
       start: new Date(body.start),
       end: new Date(body.end),
       creator: { connect: { id: session.user.id } },
