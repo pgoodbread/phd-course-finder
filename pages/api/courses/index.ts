@@ -32,8 +32,8 @@ async function handleCreate(
 
   await prisma.course.create({
     data: {
-      ...body,
-      date: new Date(body.date),
+      start: new Date(body.start),
+      end: new Date(body.end),
       creator: { connect: { id: session.user.id } },
     },
   });

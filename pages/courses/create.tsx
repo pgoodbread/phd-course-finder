@@ -20,7 +20,8 @@ export default function CreateCourse({ user }: { user: User }) {
           credits: 0,
           fee: 0,
           link: "",
-          date: "",
+          start: "",
+          end: "",
         }}
         validationSchema={createCourseValidation}
         onSubmit={async (values, { setSubmitting }) => {
@@ -80,13 +81,17 @@ export default function CreateCourse({ user }: { user: User }) {
               component="div"
             />
 
-            <label htmlFor="">Date</label>
-            <Field className="border-black border" type="date" name="date" />
+            <label htmlFor="">Start Date</label>
+            <Field className="border-black border" type="date" name="start" />
             <ErrorMessage
               className="text-red-800"
-              name="date"
+              name="start"
               component="div"
             />
+
+            <label htmlFor="">End Date</label>
+            <Field className="border-black border" type="date" name="end" />
+            <ErrorMessage className="text-red-800" name="end" component="div" />
 
             <label htmlFor="">Link</label>
             <Field className="border-black border" type="text" name="link" />

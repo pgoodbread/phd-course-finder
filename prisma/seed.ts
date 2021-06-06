@@ -14,13 +14,15 @@ async function seed() {
           data: [
             {
               name: "Mathe",
-              date: new Date("05/08/2022"),
+              start: new Date("05/08/2022"),
+              end: new Date("05/10/2022"),
               institution: "HAW",
               link: "https://www.google.de",
             },
             {
               name: "Operations Research",
-              date: new Date("09/02/2022"),
+              start: new Date("05/08/2022"),
+              end: new Date("05/10/2022"),
               institution: "KLU",
               link: "https://www.google.de",
             },
@@ -29,7 +31,6 @@ async function seed() {
       },
     },
   });
-  console.log(user);
 }
 
 seed()

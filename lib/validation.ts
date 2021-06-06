@@ -8,5 +8,9 @@ export const createCourseValidation = yup.object({
   credits: yup.number().min(0, "Credits cannot be negative"),
   fee: yup.number().min(0, "Fee cannot be negative"),
   link: yup.string().required().url('Hint: the link must contain "http(s)://"'),
-  date: yup.date().required().min(new Date(), "Date cannot be in the past"),
+  start: yup.date().required().min(new Date(), "Date cannot be in the past"),
+  end: yup
+    .date()
+    .required()
+    .min(yup.ref("start"), "Date cannot be in the past"),
 });

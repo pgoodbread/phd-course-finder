@@ -1,16 +1,10 @@
-import { Course, User } from ".prisma/client";
+import { Course } from ".prisma/client";
 import { getSession } from "next-auth/client";
 import { NextPageContext } from "next/dist/next-server/lib/utils";
 import CourseTable from "../../components/CourseTable";
 import prisma from "../../lib/prisma";
 
-export default function Courses({
-  courses,
-  user,
-}: {
-  courses: Course[];
-  user: User;
-}) {
+export default function Courses({ courses }: { courses: Course[] }) {
   return (
     <div className="flex flex-col mt-12">
       <CourseTable allowEdit={true} className="mt-4 mx-8" courses={courses} />
@@ -33,10 +27,9 @@ export async function getServerSideProps(context: NextPageContext) {
   return {
     props: {
       courses: await prisma.course.findMany({
-        orderBy: { date: "asc" },
+        orderBy: { start: "asc" },
         where: { creatorId: session.user.id },
       }),
-      user: session.user,
     },
   };
 }
