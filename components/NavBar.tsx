@@ -81,7 +81,7 @@ export default function NavBar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                {!session && (
+                {!session && router.route !== "/login" && (
                   <>
                     <button
                       className="bg-primary hover:text-primary hover:bg-white border hover:border-primary cursor-pointer text-white px-4 py-2 rounded mr-4"
