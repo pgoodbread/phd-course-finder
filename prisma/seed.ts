@@ -18,6 +18,8 @@ async function seed() {
               end: new Date("05/10/2022"),
               institution: "HAW",
               link: "https://www.google.de",
+              fee: 1000,
+              credits: 5,
             },
             {
               name: "Operations Research",

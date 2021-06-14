@@ -18,7 +18,7 @@ export default function CreateCourse({ user }: { user: User }) {
           location: "",
           lecturer: "",
           credits: null,
-          fee: 0,
+          fee: null,
           link: "",
           start: "",
           end: "",
@@ -102,7 +102,16 @@ export default function CreateCourse({ user }: { user: User }) {
             />
 
             <label htmlFor="">Course fee</label>
-            <Field className="border-black border" type="number" name="fee" />
+            <input
+              id="fee"
+              className="border-black border"
+              type="number"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={
+                values.fee === null ? "" : (values.fee as unknown as number)
+              }
+            />
             <ErrorMessage className="text-red-800" name="fee" component="div" />
 
             <label htmlFor="">Credits</label>
