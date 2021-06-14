@@ -4,7 +4,7 @@ import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import React from "react";
-import { createCourseValidation } from "../../lib/validation";
+import { CourseValidation } from "../../lib/validation";
 
 export default function CreateCourse({ user }: { user: User }) {
   const router = useRouter();
@@ -23,7 +23,7 @@ export default function CreateCourse({ user }: { user: User }) {
           start: "",
           end: "",
         }}
-        validationSchema={createCourseValidation}
+        validationSchema={CourseValidation}
         onSubmit={async (values, { setSubmitting }) => {
           await fetch("/api/courses", {
             method: "POST",

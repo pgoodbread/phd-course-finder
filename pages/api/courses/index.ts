@@ -2,7 +2,7 @@ import { Course } from ".prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/client";
 import prisma from "../../../lib/prisma";
-import { createCourseValidation } from "../../../lib/validation";
+import { CourseValidation } from "../../../lib/validation";
 
 export default async function handler(
   request: NextApiRequest,
@@ -21,7 +21,7 @@ async function handleCreate(
 ) {
   const body: Omit<Course, "creatorId"> = JSON.parse(request.body);
 
-  const bodyIsValid = await createCourseValidation.isValid(body);
+  const bodyIsValid = await CourseValidation.isValid(body);
   if (!bodyIsValid) {
     return response.status(422).json("Form input not valid.");
   }

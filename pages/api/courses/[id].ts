@@ -1,7 +1,8 @@
+import { Course } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/client";
 import prisma from "../../../lib/prisma";
-import { createCourseValidation } from "../../../lib/validation";
+import { CourseValidation } from "../../../lib/validation";
 
 export default async function handler(
   request: NextApiRequest,
@@ -23,9 +24,9 @@ async function handleEdit(request: NextApiRequest, response: NextApiResponse) {
     return response.status(422).json("Url parameter not valid");
   }
 
-  const body = JSON.parse(request.body);
+  const body: Omit<Course, "creatorId"> = JSON.parse(request.body);
 
-  const bodyIsValid = await createCourseValidation.isValid(body);
+  const bodyIsValid = await CourseValidation.isValid(body);
   if (!bodyIsValid) {
     return response.status(422).json("Form input not valid.");
   }
@@ -41,7 +42,11 @@ async function handleEdit(request: NextApiRequest, response: NextApiResponse) {
       courses: {
         update: {
           where: { id: request.query.id },
-          data: { ...body, date: new Date(body.date) },
+          data: {
+            ...body,
+            start: new Date(body.start),
+            end: new Date(body.end),
+          },
         },
       },
     },
