@@ -110,21 +110,23 @@ export default function NavBar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <Link href={item.href} key={item.name}>
-                  <a
-                    className={classNames(
-                      item.current
-                        ? "text-gray-900 border-l-4 border-primary"
-                        : "text-gray-400 hover:text-gray-900",
-                      "block px-3 py-2 text-base font-medium"
-                    )}
-                    aria-current={item.current ? "page" : undefined}
-                  >
-                    {item.name}
-                  </a>
-                </Link>
-              ))}
+              {navigation
+                .filter((item) => !item.onlySignedIn || session)
+                .map((item) => (
+                  <Link href={item.href} key={item.name}>
+                    <a
+                      className={classNames(
+                        item.current
+                          ? "text-gray-900 border-l-4 border-primary"
+                          : "text-gray-400 hover:text-gray-900",
+                        "block px-3 py-2 text-base font-medium"
+                      )}
+                      aria-current={item.current ? "page" : undefined}
+                    >
+                      {item.name}
+                    </a>
+                  </Link>
+                ))}
             </div>
           </Disclosure.Panel>
         </>
