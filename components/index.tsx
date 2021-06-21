@@ -1,6 +1,7 @@
 import CourseTable from "./CourseTable";
 import DeleteButton from "./DeleteButton";
-import NavBar from "./NavBar";
 import Footer from "./Footer";
+import Layout from "./Layout";
+import NavBar from "./NavBar";
 
-export { CourseTable, DeleteButton, NavBar, Footer };
+export { CourseTable, DeleteButton, NavBar, Footer, Layout };
