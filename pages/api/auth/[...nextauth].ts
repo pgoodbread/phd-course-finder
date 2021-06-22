@@ -31,12 +31,6 @@ export default NextAuth({
       name: "Credentials",
 
       async authorize(credentials: Credentials) {
-        const salt = await bcrypt.genSalt();
-
-        const hash = await bcrypt.hash(credentials.password, salt);
-
-        console.log(credentials, hash);
-
         const user = await prisma.user.findFirst({
           where: { name: credentials.username },
         });
