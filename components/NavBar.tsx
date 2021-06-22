@@ -13,6 +13,12 @@ const navigation = [
     current: false,
     onlySignedIn: true,
   },
+  {
+    name: "Imprint",
+    href: "/imprint",
+    current: false,
+    onlySignedIn: false,
+  },
 ];
 
 function classNames(...classes: string[]) {
