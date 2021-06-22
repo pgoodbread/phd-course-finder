@@ -1,27 +1,25 @@
 export default function Imprint() {
   return (
-    <div className="flex flex-col pt-12 max-w-full items-center ">
-      <div className="max-w-4xl flex flex-col text-justify">
-        <h1 className="font-bold leading-7 text-gray-900 sm:text-3xl mt-4 mx-8">
+    <div className="flex flex-col pt-12 max-w-full items-center">
+      <div className="max-w-4xl flex flex-col text-justify mx-8">
+        <h1 className="font-bold leading-7 text-gray-900 sm:text-3xl mt-4">
           Impressum
         </h1>
-        <h3 className="font-bold leading-7 sm:text-lg mt-4 mx-8">
+        <h3 className="font-bold leading-7 sm:text-lg mt-4">
           Angaben gemäß §5 TMG{" "}
         </h3>
-        <span className="mt-4 mx-8">Sandra Rudeloff</span>
-        <span className="mt-0 mx-8">Woltmanstraße 14</span>
-        <span className="mt-0 mx-8">20097Hamburg</span>
+        <span className="mt-4">Sandra Rudeloff</span>
+        <span>Woltmanstraße 14</span>
+        <span>20097 Hamburg</span>
 
-        <h3 className="font-bold leading-7 sm:text-lg mt-4 mx-8">Kontakt </h3>
-        <span className="mt-4 mx-8">Telefon: 0172 253 6643</span>
-        <span className="mt-0 mx-8">
-          E-Mail: Sandra.Rudeloff[at]the-klu.org
-        </span>
+        <h3 className="font-bold leading-7 sm:text-lg mt-4">Kontakt</h3>
+        <span className="mt-4">Telefon: 0172 253 6643</span>
+        <span>E-Mail: Sandra.Rudeloff[at]the-klu.org</span>
 
-        <h3 className="font-bold leading-7 sm:text-lg mt-4 mx-8">
+        <h3 className="font-bold leading-7 sm:text-lg mt-4">
           Haftung für Inhalte{" "}
         </h3>
-        <span className="mt-4 mx-8">
+        <span className="mt-4">
           Alle Inhalte unseres Internetauftritts wurden mit größter Sorgfalt und
           nach bestem Gewissen erstellt. Für die Richtigkeit, Vollständigkeit
           und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
@@ -38,10 +36,10 @@ export default function Imprint() {
           diese Inhalte unverzüglich entfernen.
         </span>
 
-        <h3 className="font-bold leading-7 sm:text-lg mt-4 mx-8">
+        <h3 className="font-bold leading-7 sm:text-lg mt-4">
           Haftungsbeschränkung für externe Links
         </h3>
-        <span className="mt-4 mx-8">
+        <span className="mt-4">
           Unsere Webseite enthält Links auf externe Webseiten Dritter. Auf die
           Inhalte dieser direkt oder indirekt verlinkten Webseiten haben wir
           keinen Einfluss. Daher können wir für die „externen Links“ auch keine
@@ -69,10 +67,8 @@ export default function Imprint() {
           externen Links durch uns unverzüglich entfernt.
         </span>
 
-        <h3 className="font-bold leading-7 sm:text-lg mt-4 mx-8">
-          Urheberrecht
-        </h3>
-        <span className="mt-4 mx-8">
+        <h3 className="font-bold leading-7 sm:text-lg mt-4 ">Urheberrecht</h3>
+        <span className="mt-4">
           Die auf unserer Webseite veröffentlichen Inhalte und Werke unterliegen
           dem deutschen Urheberrecht
           (http://www.gesetze-im-internet.de/bundesrecht/urhg/gesamt.pdf) . Die
