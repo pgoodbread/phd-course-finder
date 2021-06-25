@@ -1,9 +1,10 @@
 import { User } from ".prisma/client";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { ErrorMessage, Form, Formik } from "formik";
 import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import React from "react";
+import { FormInput } from "../../components";
 import { CourseValidation } from "../../lib/validation";
 
 export default function CreateCourse({ user }: { user: User }) {
@@ -36,84 +37,25 @@ export default function CreateCourse({ user }: { user: User }) {
         }}
       >
         {({ isSubmitting, handleChange, handleBlur, values }) => (
-          <Form className="flex flex-col mt-12">
-            <label htmlFor="">Name</label>
-            <Field className="border-black border" type="text" name="name" />
-            <ErrorMessage
-              className="text-red-800"
-              name="name"
-              component="div"
-            />
+          <Form className="flex flex-col mt-12 mx-4">
+            <FormInput name="name" type="text"></FormInput>
+            <FormInput name="institution" type="text"></FormInput>
+            <FormInput name="location" type="text" optional></FormInput>
+            <FormInput name="lecturer" type="text" optional></FormInput>
+            <FormInput name="lecturer" type="text" optional></FormInput>
+            <div className="flex flex-row">
+              <FormInput
+                name="start"
+                label="Start Date"
+                type="date"
+              ></FormInput>
+              <FormInput name="end" label="End Date" type="date"></FormInput>
+            </div>
+            <FormInput name="link" type="text"></FormInput>
+            <FormInput name="fee" type="number"></FormInput>
+            <FormInput name="credits" type="number"></FormInput>
 
-            <label htmlFor="">Institution</label>
-            <Field
-              className="border-black border"
-              type="text"
-              name="institution"
-            />
-            <ErrorMessage
-              className="text-red-800"
-              name="institution"
-              component="div"
-            />
-
-            <label htmlFor="">Location</label>
-            <Field
-              className="border-black border"
-              type="text"
-              name="location"
-            />
-            <ErrorMessage
-              className="text-red-800"
-              name="location"
-              component="div"
-            />
-
-            <label htmlFor="">Lecturer</label>
-            <Field
-              className="border-black border"
-              type="text"
-              name="lecturer"
-            />
-            <ErrorMessage
-              className="text-red-800"
-              name="lecturer"
-              component="div"
-            />
-
-            <label htmlFor="">Start Date</label>
-            <Field className="border-black border" type="date" name="start" />
-            <ErrorMessage
-              className="text-red-800"
-              name="start"
-              component="div"
-            />
-
-            <label htmlFor="">End Date</label>
-            <Field className="border-black border" type="date" name="end" />
-            <ErrorMessage className="text-red-800" name="end" component="div" />
-
-            <label htmlFor="">Link</label>
-            <Field className="border-black border" type="text" name="link" />
-            <ErrorMessage
-              className="text-red-800"
-              name="link"
-              component="div"
-            />
-
-            <label htmlFor="">Course fee</label>
-            <input
-              id="fee"
-              className="border-black border"
-              type="number"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={
-                values.fee === null ? "" : (values.fee as unknown as number)
-              }
-            />
-            <ErrorMessage className="text-red-800" name="fee" component="div" />
-
+            {/* Wie handlen mit den formik callbacks und dem value? */}
             <label htmlFor="">Credits</label>
             <input
               id="credits"
@@ -132,7 +74,6 @@ export default function CreateCourse({ user }: { user: User }) {
               name="credits"
               component="div"
             />
-
             <button
               className="bg-blue-500 mt-2 rounded-md text-white w-24"
               type="submit"
