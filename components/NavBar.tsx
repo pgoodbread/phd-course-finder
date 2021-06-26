@@ -47,13 +47,12 @@ export default function NavBar() {
               <div className="flex-1 flex items-center justify-center h-12 sm:items-stretch sm:justify-start md:h-13">
                 <div className="flex-shrink-0 flex items-center">
                   <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                    src="/logo-with-text.svg"
+                    width="62px"
                     alt="Workflow"
                   />
                   <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                    src="/logo-with-text.svg"
                     alt="Workflow"
                   />
                 </div>
