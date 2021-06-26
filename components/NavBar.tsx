@@ -47,11 +47,16 @@ export default function NavBar() {
               <div className="flex-1 flex items-center justify-center h-12 sm:items-stretch sm:justify-start md:h-13">
                 <div className="flex-shrink-0 flex items-center">
                   <img
+                    className="block lg:hidden"
                     src="/logo-with-text.svg"
                     width="62px"
+                    height="62px"
                     alt="Workflow"
                   />
                   <img
+                    className="hidden lg:block"
+                    width="62px"
+                    height="62px"
                     src="/logo-with-text.svg"
                     alt="Workflow"
                   />
