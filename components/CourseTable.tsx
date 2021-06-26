@@ -111,7 +111,7 @@ export default function CourseTable({
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         scope="col"
-        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
+        className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer whitespace-nowrap"
       >
         {name}
         <svg
@@ -119,9 +119,7 @@ export default function CourseTable({
           viewBox="0 0 24 24"
           width="24"
           height="24"
-          className={`transform inline-block hover:opacity-100 ${getSortIconClassFor(
-            name
-          )}`}
+          className={`transform inline-block ${getSortIconClassFor(name)}`}
         >
           <path fill="none" d="M0 0h24v24H0z" />
           <path d="M12 10l4 4H8z" />
@@ -134,7 +132,7 @@ export default function CourseTable({
     <div className={`flex flex-col gap-6 ${className}`}>
       <input
         placeholder="Filter by name, institution and location"
-        className="border border-gray-400 w-60 rounded px-1"
+        className="border border-gray-400 w-96 rounded px-1 focus:outline-none focus:ring-primary focus:border-primary focus:z-10"
         type="text"
         value={filterInput}
         onChange={(event) => {
