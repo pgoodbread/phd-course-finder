@@ -1,10 +1,11 @@
 import { User } from ".prisma/client";
-import { ErrorMessage, Form, Formik } from "formik";
+import { Formik } from "formik";
 import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import React from "react";
 import { FormInput } from "../../components";
+import CourseForm from "../../components/CourseForm";
 import { CourseValidation } from "../../lib/validation";
 
 export default function CreateCourse({ user }: { user: User }) {
@@ -36,68 +37,29 @@ export default function CreateCourse({ user }: { user: User }) {
           setSubmitting(false);
         }}
       >
-        {({ isSubmitting, handleChange, handleBlur, values }) => (
-          <Form className="flex flex-col justify-center mt-12 mx-4 md:w-1/2 md:mx-auto">
-            <FormInput name="name" type="text"></FormInput>
-            <FormInput name="institution" type="text"></FormInput>
-            <FormInput name="location" type="text" optional></FormInput>
-            <FormInput name="lecturer" type="text" optional></FormInput>
-            <div className="flex flex-row">
-              <FormInput
-                className="w-1/2"
-                name="start"
-                label="Start Date"
-                type="date"
-              ></FormInput>
-              <FormInput
-                className="w-1/2"
-                name="end"
-                label="End Date"
-                type="date"
-              ></FormInput>
-            </div>
-            <FormInput name="link" type="text"></FormInput>
+        {({ isSubmitting, handleBlur, handleChange, values }) => (
+          <CourseForm isSubmitting={isSubmitting}>
             <div className="md:flex md:flex-row">
               <FormInput
                 name="fee"
                 type="number"
-                className="md:w-1/2"
+                className="md:w-1/2 md:mr-8"
                 nullable
+                optional
+                value={values.fee}
+                handlers={{ handleBlur, handleChange }}
               ></FormInput>
               <FormInput
                 name="credits"
                 type="number"
                 className="md:w-1/2"
                 nullable
+                optional
+                value={values.credits}
+                handlers={{ handleBlur, handleChange }}
               ></FormInput>
             </div>
-            {/* Wie handlen mit den formik callbacks und dem value? */}
-            <label htmlFor="">Credits</label>
-            <input
-              id="credits"
-              className="border-black border"
-              type="number"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={
-                values.credits === null
-                  ? ""
-                  : (values.credits as unknown as number)
-              }
-            />
-            <ErrorMessage
-              className="text-red-800"
-              name="credits"
-              component="div"
-            />
-            <button
-              className="bg-blue-500 mt-2 rounded-md text-white w-24"
-              type="submit"
-              disabled={isSubmitting}
-            >
-              Submit
-            </button>
-          </Form>
+          </CourseForm>
         )}
       </Formik>
     </>
