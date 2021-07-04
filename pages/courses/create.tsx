@@ -37,24 +37,40 @@ export default function CreateCourse({ user }: { user: User }) {
         }}
       >
         {({ isSubmitting, handleChange, handleBlur, values }) => (
-          <Form className="flex flex-col mt-12 mx-4">
+          <Form className="flex flex-col justify-center mt-12 mx-4 md:w-1/2 md:mx-auto">
             <FormInput name="name" type="text"></FormInput>
             <FormInput name="institution" type="text"></FormInput>
             <FormInput name="location" type="text" optional></FormInput>
             <FormInput name="lecturer" type="text" optional></FormInput>
-            <FormInput name="lecturer" type="text" optional></FormInput>
             <div className="flex flex-row">
               <FormInput
+                className="w-1/2"
                 name="start"
                 label="Start Date"
                 type="date"
               ></FormInput>
-              <FormInput name="end" label="End Date" type="date"></FormInput>
+              <FormInput
+                className="w-1/2"
+                name="end"
+                label="End Date"
+                type="date"
+              ></FormInput>
             </div>
             <FormInput name="link" type="text"></FormInput>
-            <FormInput name="fee" type="number"></FormInput>
-            <FormInput name="credits" type="number"></FormInput>
-
+            <div className="md:flex md:flex-row">
+              <FormInput
+                name="fee"
+                type="number"
+                className="md:w-1/2"
+                nullable
+              ></FormInput>
+              <FormInput
+                name="credits"
+                type="number"
+                className="md:w-1/2"
+                nullable
+              ></FormInput>
+            </div>
             {/* Wie handlen mit den formik callbacks und dem value? */}
             <label htmlFor="">Credits</label>
             <input
