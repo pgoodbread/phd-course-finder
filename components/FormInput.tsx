@@ -42,7 +42,9 @@ export default function FormInput({
         )}
         {!nullable ? (
           <Field
-            className="focus:ring-primary focus:border-primary block w-full pl-3 pr-4 text-sm border-gray-300 rounded-md"
+            className={`focus:ring-primary focus:border-primary block w-full pl-3 pr-4 text-sm border-gray-300 rounded-md ${
+              name === "fee" ? "pl-7" : ""
+            }`}
             type={type}
             name={name}
           />

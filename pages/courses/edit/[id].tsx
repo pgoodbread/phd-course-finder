@@ -1,9 +1,11 @@
 import { Course, User } from ".prisma/client";
-import { ErrorMessage, Field, Form, Formik } from "formik";
+import { Formik } from "formik";
 import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import React from "react";
+import { FormInput } from "../../../components";
+import CourseForm from "../../../components/CourseForm";
 import prisma from "../../../lib/prisma";
 import { CourseValidation } from "../../../lib/validation";
 
@@ -42,71 +44,22 @@ export default function EditCourse({
       }}
     >
       {({ isSubmitting, handleBlur, handleChange, values }) => (
-        <Form className="flex flex-col">
-          <label htmlFor="">Name</label>
-          <Field className="border-black border" type="text" name="name" />
-          <ErrorMessage className="text-red-800" name="name" component="div" />
-
-          <label htmlFor="">Institution</label>
-          <Field
-            className="border-black border"
-            type="text"
-            name="institution"
-          />
-          <ErrorMessage
-            className="text-red-800"
-            name="institution"
-            component="div"
-          />
-
-          <label htmlFor="">Location</label>
-          <Field className="border-black border" type="text" name="location" />
-          <ErrorMessage
-            className="text-red-800"
-            name="location"
-            component="div"
-          />
-
-          <label htmlFor="">Lecturer</label>
-          <Field className="border-black border" type="text" name="lecturer" />
-          <ErrorMessage
-            className="text-red-800"
-            name="lecturer"
-            component="div"
-          />
-
-          <label htmlFor="">Start Date</label>
-          <Field className="border-black border" type="date" name="start" />
-          <ErrorMessage className="text-red-800" name="start" component="div" />
-
-          <label htmlFor="">End Date</label>
-          <Field className="border-black border" type="date" name="end" />
-          <ErrorMessage className="text-red-800" name="end" component="div" />
-
-          <label htmlFor="">Link</label>
-          <Field className="border-black border" type="text" name="link" />
-          <ErrorMessage className="text-red-800" name="link" component="div" />
-
-          <label htmlFor="">Course fee</label>
-          <Field className="border-black border" type="number" name="fee" />
-          <ErrorMessage className="text-red-800" name="fee" component="div" />
-
-          <label htmlFor="">Credits</label>
-          <Field className="border-black border" type="number" name="credits" />
-          <ErrorMessage
-            className="text-red-800"
-            name="credits"
-            component="div"
-          />
-
-          <button
-            className="bg-blue-500 mt-2 rounded-md text-white w-24"
-            type="submit"
-            disabled={isSubmitting}
-          >
-            Submit
-          </button>
-        </Form>
+        <CourseForm isSubmitting={isSubmitting}>
+          <div className="md:flex md:flex-row">
+            <FormInput
+              name="fee"
+              type="number"
+              className="md:w-1/2 md:mr-8"
+              optional
+            ></FormInput>
+            <FormInput
+              name="credits"
+              type="number"
+              className="md:w-1/2"
+              optional
+            ></FormInput>
+          </div>
+        </CourseForm>
       )}
     </Formik>
   );
