@@ -206,6 +206,12 @@ export default function CourseTable({
 
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <a
+                          onClick={() => {
+                            fetch("/api/course_clicks", {
+                              method: "POST",
+                              body: JSON.stringify({ courseId: course.id }),
+                            });
+                          }}
                           href={course.link}
                           target="_blank"
                           rel="noopener"
