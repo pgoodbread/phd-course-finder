@@ -14,3 +14,7 @@ export const CourseValidation = yup.object({
     .required()
     .min(yup.ref("start"), "Date cannot be in the past"),
 });
+
+export const CourseClickValidation = yup.object({
+  courseId: yup.string().required().min(3).max(200, "Too long"),
+});

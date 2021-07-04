@@ -23,7 +23,7 @@ model User {
 }
 
 model Course {
-  id          String   @id @default(cuid())
+  id          String        @id @default(cuid())
   name        String
   institution String
   location    String?
@@ -31,10 +31,20 @@ model Course {
   credits     Int?
   fee         Int?
   link        String
-  start       DateTime      
+  start       DateTime
   end         DateTime
-  creator     User     @relation(fields: [creatorId], references: [id])
-  creatorId   String   @map(name: "creator_id")
+  creator     User          @relation(fields: [creatorId], references: [id])
+  creatorId   String        @map(name: "creator_id")
+  clicks      CourseClick[]
 
   @@map(name: "courses")
+}
+
+model CourseClick {
+  id        String   @id @default(cuid())
+  course    Course   @relation(fields: [courseId], references: [id])
+  courseId  String   @map(name: "course_id")
+  createdAt DateTime @default(now()) @map(name: "created_at")
+
+  @@map(name: "course_clicks")
 }
