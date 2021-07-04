@@ -1,4 +1,4 @@
-import { ErrorMessage, Field } from "formik";
+import { ErrorMessage, Field, FormikHandlers } from "formik";
 
 export default function FormInput({
   name,
@@ -8,6 +8,8 @@ export default function FormInput({
   placeholder,
   optional,
   nullable,
+  value,
+  handlers,
 }: {
   name: string;
   type: string;
@@ -16,9 +18,11 @@ export default function FormInput({
   placeholder?: string;
   optional?: boolean;
   nullable?: boolean;
+  value?: number | null;
+  handlers?: Pick<FormikHandlers, "handleBlur" | "handleChange">;
 }) {
   return (
-    <div className={`mt-4 px-2 ${className}`}>
+    <div className={`mt-4 ${className}`}>
       <div className="flex flex-row justify-between">
         <label
           htmlFor={name}
@@ -48,11 +52,9 @@ export default function FormInput({
             name={name}
             className="focus:ring-primary focus:border-primary block w-full pl-3 pr-4 sm:text-sm border-gray-300 rounded-md"
             placeholder={placeholder && ""}
-            // value={
-            //   values.credits === null
-            //     ? ""
-            //     : (values.credits as unknown as number)
-            // }
+            value={value === null ? "" : (value as unknown as number)}
+            onChange={handlers?.handleChange}
+            onBlur={handlers?.handleBlur}
           />
         )}
       </div>
