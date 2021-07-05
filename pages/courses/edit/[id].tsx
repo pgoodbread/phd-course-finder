@@ -1,25 +1,18 @@
-import { Course, User } from ".prisma/client";
-import { Formik } from "formik";
+import { Course } from ".prisma/client";
 import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import React from "react";
-import { FormInput } from "../../../components";
-import CourseForm from "../../../components/CourseForm";
+import CourseForm, {
+  replaceEmptyStringWithNull,
+} from "../../../components/CourseForm";
 import prisma from "../../../lib/prisma";
-import { CourseValidation } from "../../../lib/validation";
 
-export default function EditCourse({
-  course,
-  user,
-}: {
-  course: Course;
-  user: User;
-}) {
+export default function EditCourse({ course }: { course: Course }) {
   const router = useRouter();
 
   return (
-    <Formik
+    <CourseForm
       initialValues={{
         name: course.name,
         institution: course.institution,
@@ -31,37 +24,19 @@ export default function EditCourse({
         fee: course.fee,
         credits: course.credits,
       }}
-      validationSchema={CourseValidation}
       onSubmit={async (values, { setSubmitting }) => {
+        const course = replaceEmptyStringWithNull(values);
+
         await fetch(`/api/courses/${router.query.id}`, {
           method: "PUT",
-          body: JSON.stringify(values),
+          body: JSON.stringify(course),
         });
 
         router.push("/courses");
 
         setSubmitting(false);
       }}
-    >
-      {({ isSubmitting, handleBlur, handleChange, values }) => (
-        <CourseForm isSubmitting={isSubmitting}>
-          <div className="md:flex md:flex-row">
-            <FormInput
-              name="fee"
-              type="number"
-              className="md:w-1/2 md:mr-8"
-              optional
-            ></FormInput>
-            <FormInput
-              name="credits"
-              type="number"
-              className="md:w-1/2"
-              optional
-            ></FormInput>
-          </div>
-        </CourseForm>
-      )}
-    </Formik>
+    />
   );
 }
 
@@ -95,7 +70,6 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   return {
     props: {
       course,
-      user: session.user,
     },
   };
 }
