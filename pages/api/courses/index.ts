@@ -1,8 +1,8 @@
-import { Course } from ".prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getSession } from "next-auth/client";
 import prisma from "../../../lib/prisma";
 import { CourseValidation } from "../../../lib/validation";
+import { RawCourse } from "../../../types";
 
 export default async function handler(
   request: NextApiRequest,
@@ -19,7 +19,7 @@ async function handleCreate(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-  const body: Omit<Course, "creatorId"> = JSON.parse(request.body);
+  const body: RawCourse = JSON.parse(request.body);
 
   const bodyIsValid = await CourseValidation.isValid(body);
   if (!bodyIsValid) {
