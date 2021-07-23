@@ -1,4 +1,5 @@
 import { Course } from ".prisma/client";
+import { useSession } from "next-auth/client";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
@@ -24,6 +25,7 @@ export default function CourseTable({
     direction: "ascending",
   });
   const router = useRouter();
+  const [session] = useSession();
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -207,6 +209,10 @@ export default function CourseTable({
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <a
                           onClick={() => {
+                            if (session) {
+                              return;
+                            }
+
                             fetch("/api/course_clicks", {
                               method: "POST",
                               body: JSON.stringify({ courseId: course.id }),
@@ -217,7 +223,7 @@ export default function CourseTable({
                           rel="noopener"
                           className="bg-primary  hover:text-primary hover:bg-white border hover:border-primary text-white px-4 py-2 rounded mr-4"
                         >
-                          Visit
+                          Visit123
                         </a>
                         {allowEdit ? (
                           <>
