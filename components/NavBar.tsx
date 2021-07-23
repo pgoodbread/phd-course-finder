@@ -3,17 +3,7 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { signIn, signOut, useSession } from "next-auth/client";
 import Link from "next/link";
 import { useRouter } from "next/router";
-
-const navigation = [
-  { name: "Home", href: "/", current: false, onlySignedIn: false },
-  { name: "My Courses", href: "/courses", current: false, onlySignedIn: true },
-  {
-    name: "Create Course",
-    href: "/courses/create",
-    current: false,
-    onlySignedIn: true,
-  },
-];
+import { useEffect, useState } from "react";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -23,9 +13,40 @@ export default function NavBar() {
   const [session] = useSession();
   const router = useRouter();
 
-  navigation.forEach((item) => {
-    item.current = router.asPath === item.href;
-  });
+  const [navigation, setNavigation] = useState([
+    { name: "Home", href: "/", current: false, onlySignedIn: false },
+    {
+      name: "My Courses",
+      href: "/courses",
+      current: false,
+      onlySignedIn: true,
+    },
+    {
+      name: "Create Course",
+      href: "/courses/create",
+      current: false,
+      onlySignedIn: true,
+    },
+  ]);
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      setNavigation(
+        navigation.map((item) => ({
+          ...item,
+          current: url === item.href,
+        }))
+      );
+    };
+
+    handleRouteChange(router.asPath);
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, []);
 
   return (
     <Disclosure as="nav" className="shadow border-b-1 border-gray-200">
