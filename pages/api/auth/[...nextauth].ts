@@ -14,6 +14,9 @@ export default NextAuth({
     signIn: "/login",
   },
   callbacks: {
+    redirect(_, baseUrl) {
+      return baseUrl + "/courses";
+    },
     async jwt(token, user) {
       if (!user) {
         return token;
