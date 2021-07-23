@@ -88,12 +88,7 @@ export default function NavBar() {
                   <>
                     <button
                       className="bg-primary hover:text-primary hover:bg-white border hover:border-primary cursor-pointer text-white px-4 py-2 rounded mr-4"
-                      onClick={() =>
-                        signIn(undefined, {
-                          callbackUrl:
-                            process.env.NEXT_PUBLIC_VERCEL_URL + "/courses",
-                        })
-                      }
+                      onClick={() => signIn()}
                     >
                       Sign In
                     </button>
