@@ -223,7 +223,7 @@ export default function CourseTable({
                           rel="noopener"
                           className="bg-primary  hover:text-primary hover:bg-white border hover:border-primary text-white px-4 py-2 rounded mr-4"
                         >
-                          Visit123
+                          Visit
                         </a>
                         {allowEdit ? (
                           <>
