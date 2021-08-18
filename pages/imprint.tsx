@@ -9,8 +9,8 @@ export default function Imprint() {
           Angaben gemäß §5 TMG{" "}
         </h3>
         <span className="mt-4">Sandra Rudeloff</span>
-        <span>Woltmanstraße 14</span>
-        <span>20097 Hamburg</span>
+        <span>Ahrensburger Str. 91a</span>
+        <span>22041 Hamburg</span>
 
         <h3 className="font-bold leading-7 sm:text-lg mt-4">Kontakt</h3>
         <span className="mt-4">Telefon: 0172 253 6643</span>
@@ -70,18 +70,30 @@ export default function Imprint() {
         <h3 className="font-bold leading-7 sm:text-lg mt-4 ">Urheberrecht</h3>
         <span className="mt-4">
           Die auf unserer Webseite veröffentlichen Inhalte und Werke unterliegen
-          dem deutschen Urheberrecht
-          (http://www.gesetze-im-internet.de/bundesrecht/urhg/gesamt.pdf) . Die
-          Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung
-          des geistigen Eigentums in ideeller und materieller Sicht des Urhebers
-          außerhalb der Grenzen des Urheberrechtes bedürfen der vorherigen
-          schriftlichen Zustimmung des jeweiligen Urhebers i.S.d.
-          Urhebergesetzes
-          (http://www.gesetze-im-internet.de/bundesrecht/urhg/gesamt.pdf ).
-          Downloads und Kopien dieser Seite sind nur für den privaten und nicht
-          kommerziellen Gebrauch erlaubt. Sind die Inhalte auf unserer Webseite
-          nicht von uns erstellt wurden, sind die Urheberrechte Dritter zu
-          beachten. Die Inhalte Dritter werden als solche kenntlich gemacht.
+          dem deutschen Urheberrecht (
+          <a
+            className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+            href="http://www.gesetze-im-internet.de/bundesrecht/urhg/gesamt.pdf"
+            target="_blank"
+          >
+            Gesetz über Urheberrecht und verwandte Schutzrechte
+          </a>
+          ). Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
+          Verwertung des geistigen Eigentums in ideeller und materieller Sicht
+          des Urhebers außerhalb der Grenzen des Urheberrechtes bedürfen der
+          vorherigen schriftlichen Zustimmung des jeweiligen Urhebers i.S.d.
+          Urhebergesetzes (
+          <a
+            className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+            href="http://www.gesetze-im-internet.de/bundesrecht/urhg/gesamt.pdf"
+            target="_blank"
+          >
+            Gesetz über Urheberrecht und verwandte Schutzrechte
+          </a>
+          ). Downloads und Kopien dieser Seite sind nur für den privaten und
+          nicht kommerziellen Gebrauch erlaubt. Sind die Inhalte auf unserer
+          Webseite nicht von uns erstellt wurden, sind die Urheberrechte Dritter
+          zu beachten. Die Inhalte Dritter werden als solche kenntlich gemacht.
           Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam
           werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden
           von Rechtsverletzungen werden wir derartige Inhalte unverzüglich
