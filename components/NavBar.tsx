@@ -121,7 +121,7 @@ export default function NavBar() {
                       {session.user.email}
                     </span>
                     <button
-                      className="text-gray-500 hover:text-gray-900"
+                      className="text-gray-f500 hover:text-gray-900"
                       onClick={() => signOut()}
                     >
                       Sign Out
