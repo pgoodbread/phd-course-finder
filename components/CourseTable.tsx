@@ -134,7 +134,7 @@ export default function CourseTable({
     <div className={`flex flex-col gap-6 ${className}`}>
       <input
         placeholder="Filter by name, institution and location"
-        className="border border-gray-400 w-96 rounded px-1 focus:outline-none focus:ring-primary focus:border-primary focus:z-10"
+        className="border border-gray-400 w-100 md:w-96 rounded px-1 focus:outline-none focus:ring-primary focus:border-primary focus:z-10"
         type="text"
         value={filterInput}
         onChange={(event) => {
