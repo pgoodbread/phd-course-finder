@@ -67,20 +67,24 @@ export default function NavBar() {
               </div>
               <div className="flex-1 flex items-center justify-center h-12 sm:items-stretch sm:justify-start md:h-13">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden"
-                    src="/logo-with-text.svg"
-                    width="62px"
-                    height="62px"
-                    alt="Workflow"
-                  />
-                  <img
-                    className="hidden lg:block"
-                    width="62px"
-                    height="62px"
-                    src="/logo-with-text.svg"
-                    alt="Workflow"
-                  />
+                  <Link href="/" key="home">
+                    <a>
+                      <img
+                        className="block lg:hidden"
+                        src="/logo-with-text.svg"
+                        width="62px"
+                        height="62px"
+                        alt="Workflow"
+                      />
+                      <img
+                        className="hidden lg:block"
+                        width="62px"
+                        height="62px"
+                        src="/logo-with-text.svg"
+                        alt="Workflow"
+                      />
+                    </a>
+                  </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
@@ -108,7 +112,7 @@ export default function NavBar() {
                 {!session && router.route !== "/login" && (
                   <>
                     <button
-                      className="bg-primary hover:text-primary hover:bg-white border hover:border-primary cursor-pointer text-white px-4 py-2 rounded mr-4"
+                      className="bg-primary hover:text-primary hover:bg-white border hover:border-primary cursor-pointer text-white px-4 py-2 rounded mr-4 focus:outline-none"
                       onClick={() => signIn()}
                     >
                       Sign In
@@ -121,7 +125,7 @@ export default function NavBar() {
                       {session.user.email}
                     </span>
                     <button
-                      className="text-gray-f500 hover:text-gray-900"
+                      className="border border-red-600 px-4 py-2 rounded text-red-600 hover:bg-red-600 hover:text-white focus:outline-none"
                       onClick={() => signOut()}
                     >
                       Sign Out
