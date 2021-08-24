@@ -32,11 +32,12 @@ export default function FormInput({
           htmlFor={name}
           className="block text-sm font-medium text-gray-700 capitalize"
         >
-          {label ? label : name}
+          {label ? label : name}{" "}
+          {!optional && <span className="text-primary font-bold">*</span>}
         </label>
-        <p className="block text-sm font-normal text-gray-400">
+        {/* <p className="block text-sm font-normal text-gray-400">
           {optional && "optional"}
-        </p>
+        </p> */}
       </div>
       <div className="mt-1 relative rounded-md shadow-sm">
         {name === "fee" && (
