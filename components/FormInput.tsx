@@ -26,7 +26,7 @@ export default function FormInput({
   }`;
 
   return (
-    <div className={`mt-4 ${className}`}>
+    <div className={`mb-4 ${className}`}>
       <div className="flex flex-row justify-between">
         <label
           htmlFor={name}

@@ -72,7 +72,7 @@ export default function CourseForm({
             />
           </div>
 
-          <p className="text-sm font-medium text-gray-400 capitalize mt-4">
+          <p className="text-sm font-medium text-gray-400 capitalize">
             <span className="text-primary font-bold">*</span> Required Fields
           </p>
 
