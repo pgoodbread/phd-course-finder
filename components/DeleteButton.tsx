@@ -18,7 +18,7 @@ export default function DeleteButton({ onDelete }: { onDelete: () => void }) {
   return (
     <>
       <button
-        className="border border-red-600 px-4 py-2 rounded text-red-600 hover:bg-red-600 hover:text-white"
+        className="border border-red-600 px-4 py-2 rounded text-red-600 hover:bg-red-600 hover:text-white focus:outline-none"
         onClick={() => openDialog()}
       >
         Delete
