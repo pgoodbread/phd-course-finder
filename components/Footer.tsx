@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-wrap justify-center border-t p-6 text-xs text-center text-gray-400 mt-10 ">
+    <footer className="flex flex-wrap justify-center border-t p-6 text-xs text-center text-gray-400">
       <div className="inline w-full md:w-auto">
         &copy; {new Date().getFullYear()}{" "}
         <Link href="/">
