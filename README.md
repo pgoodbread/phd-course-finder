@@ -1,5 +1,14 @@
 # phd-course-finder
 
+## Setup
+
+Have the docker container running.
+
+```bash
+yarn prisma migrate dev # run migrations
+yarn prisma db seed --preview-feature # seed database
+```
+
 ## Orga
 
 [OneDrive](https://theklu-my.sharepoint.com/:f:/g/personal/sandra_rudeloff_the-klu_org/EmSuNGVO1ItMqnc-F4WsPW0Bh0egtrNEgEJTvFkPfm8SRA?e=5%3ay8GEOI&at=9)
