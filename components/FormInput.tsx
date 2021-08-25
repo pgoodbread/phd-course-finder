@@ -21,7 +21,7 @@ export default function FormInput({
   value?: number | null | "";
   handlers?: Pick<FormikHandlers, "handleBlur" | "handleChange">;
 }) {
-  const inputStyle = `focus:ring-primary focus:border-primary block w-full pl-3 pr-4 text-sm border-gray-300 rounded-md ${
+  const inputStyle = `focus:ring-primary focus:border-primary block w-full pl-3 text-sm border-gray-300 rounded-md ${
     name === "fee" ? "pl-7" : ""
   }`;
 

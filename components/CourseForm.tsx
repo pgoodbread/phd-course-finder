@@ -35,15 +35,15 @@ export default function CourseForm({
           <FormInput name="institution" type="text" />
           <FormInput name="location" type="text" optional />
           <FormInput name="lecturer" type="text" optional />
-          <div className="flex flex-row">
+          <div className="flex flex-row justify-between">
             <FormInput
-              className="w-1/2 mr-4 md:mr-8"
+              className="w-40 md:w-1/2 mr-4 md:mr-8"
               name="start"
               label="Start Date"
               type="date"
             />
             <FormInput
-              className="w-1/2"
+              className="w-40 md:w-1/2"
               name="end"
               label="End Date"
               type="date"
