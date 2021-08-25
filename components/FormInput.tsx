@@ -35,9 +35,6 @@ export default function FormInput({
           {label ? label : name}{" "}
           {!optional && <span className="text-primary font-bold">*</span>}
         </label>
-        {/* <p className="block text-sm font-normal text-gray-400">
-          {optional && "optional"}
-        </p> */}
       </div>
       <div className="mt-1 relative rounded-md shadow-sm">
         {name === "fee" && (

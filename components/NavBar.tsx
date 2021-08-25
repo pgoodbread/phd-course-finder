@@ -140,7 +140,7 @@ export default function NavBar() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="pt-2 space-y-1 bg-white">
+            <div className="space-y-1 bg-white">
               {navigation
                 .filter((item) => !item.onlySignedIn || session)
                 .map((item) => (
