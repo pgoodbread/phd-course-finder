@@ -72,12 +72,12 @@ export default function CourseForm({
             />
           </div>
 
-          <p className="text-sm font-medium text-gray-400 capitalize">
+          <p className="text-sm font-medium text-gray-400 capitalize mb-4">
             <span className="text-primary font-bold">*</span> Required Fields
           </p>
 
           <button
-            className="bg-primary mt-4 hover:text-primary hover:bg-white border hover:border-primary text-white px-4 py-2 rounded"
+            className="bg-primary mb-4 hover:text-primary hover:bg-white border hover:border-primary text-white px-4 py-2 rounded"
             type="submit"
             disabled={isSubmitting}
           >
