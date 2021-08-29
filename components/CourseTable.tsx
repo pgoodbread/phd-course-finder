@@ -1,8 +1,8 @@
 import { Course } from ".prisma/client";
 import { useSession } from "next-auth/client";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
+import Button from "./Button";
 import DeleteButton from "./DeleteButton";
 
 type SortConfig = {
@@ -227,15 +227,13 @@ export default function CourseTable({
                         </a>
                         {allowEdit ? (
                           <>
-                            <Link href={`/courses/edit/${course.id}`}>
-                              <a className="bg-primary mr-4  hover:text-primary hover:bg-white border hover:border-primary text-white px-4 py-2 rounded">
-                                Edit
-                              </a>
-                            </Link>
-
+                            <Button href={`/courses/edit/${course.id}`}>
+                              Edit
+                            </Button>
                             <DeleteButton
                               onDelete={() => deleteCourse(course)}
                             />
+                            "
                           </>
                         ) : null}
                       </td>
