@@ -3,8 +3,8 @@ export default function LandingPage() {
     <div className="md:mx-28">
       <div className="flex flex-wrap md:flex-nowrap">
         {/* Section Intro Text & CTA Button */}
-        <div className="w-full md:w-1/2 bg-gray-50 h-screen md:h-auto">
-          <div className="mt-24 mb-8 mx-8 md:my-28 md:mx-16">
+        <div className="w-full md:w-1/2 bg-gray-50">
+          <div className="mt-24 mb-20 mx-8 md:my-28 md:mx-16">
             <h2 className="text-5xl bold font-extrabold">Life should</h2>
             <h2 className="text-5xl bold font-extrabold">be easy</h2>
 
@@ -19,11 +19,11 @@ export default function LandingPage() {
           </div>
         </div>
         {/* Section Gradient Info */}
-        <div className="w-full md:h-auto h-screen md:w-1/2 bg-gradient-to-br from-purple-400 via-pink-500 to-red-500"></div>
+        <div className="w-full md:w-1/2 bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 invisible md:visible"></div>
       </div>
       {/* Section Partner Logos */}
-      <div className="md:mt-20 md:flex md:items-center md:h-auto h-screen">
-        <div className="text-4xl font-semibold mt-10 mb-6 text-center md:text-sm md:text-gray-500 md:border-gray-200 md:border-t md:mr-32 md:whitespace-nowrap">
+      <div className="md:mt-20 md:flex md:items-center">
+        <div className="text-4xl font-semibold mt-10 mb-10 text-center md:text-sm md:text-gray-500 md:border-gray-200 md:border-t md:mr-32 md:whitespace-nowrap">
           Our Partners
         </div>
 
@@ -109,7 +109,7 @@ export default function LandingPage() {
       </div>
 
       {/* Section "How it works" */}
-      <div className="border md:border-0">
+      <div className="border-t md:border-0 mx-8">
         <div className="flex flex-col items-center mt-12 md:mt-20">
           <h3 className="text-4xl font-semibold">How it works</h3>
           <p className="mt-7 mb-6 md:mb-0 md:w-96 text-gray-500 text-center leading-7">
