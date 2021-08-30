@@ -1,10 +1,10 @@
 export default function LandingPage() {
   return (
     <div className="md:mx-28">
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap md:flex-nowrap">
         {/* Section Intro Text & CTA Button */}
-        <div className="w-full md:w-1/2 bg-gray-50 h-screen">
-          <div className="mt-24 mb-8 mx-8 md:my-32 md:mx-16">
+        <div className="w-full md:w-1/2 bg-gray-50 h-screen md:h-auto">
+          <div className="mt-24 mb-8 mx-8 md:my-28 md:mx-16">
             <h2 className="text-5xl bold font-extrabold">Life should</h2>
             <h2 className="text-5xl bold font-extrabold">be easy</h2>
 
@@ -19,19 +19,19 @@ export default function LandingPage() {
           </div>
         </div>
         {/* Section Gradient Info */}
-        <div className="w-full h-screen md:w-1/2 bg-gradient-to-br from-purple-400 via-pink-500 to-red-500"></div>
+        <div className="w-full md:h-auto h-screen md:w-1/2 bg-gradient-to-br from-purple-400 via-pink-500 to-red-500"></div>
       </div>
       {/* Section Partner Logos */}
-      <div className="md:mt-20 md:flex md:justify-center md:flex-wrap h-screen">
-        <p className="text-4xl font-semibold mt-10 mb-6 text-center md:inline md:text-sm md:text-gray-500 md:border-gray-200 md:border-t md:pt-3 md:mr-32 md:whitespace-nowrap">
+      <div className="md:mt-20 md:flex md:items-center md:h-auto h-screen">
+        <div className="text-4xl font-semibold mt-10 mb-6 text-center md:text-sm md:text-gray-500 md:border-gray-200 md:border-t md:mr-32 md:whitespace-nowrap">
           Our Partners
-        </p>
+        </div>
 
-        <div className="flex w-full flex-wrap justify-center md:justify-between">
+        <div className="flex w-full flex-wrap md:flex-nowrap justify-center md:justify-between">
           <svg
             viewBox="0 0 512 214"
             preserveAspectRatio="xMidYMid"
-            className="ml-28 my-6 w-48 md:w-32 filter grayscale opacity-40"
+            className="ml-28 my-6 w-48 md:m-0 md:w-32 filter grayscale opacity-40"
           >
             <g>
               <path
@@ -41,7 +41,7 @@ export default function LandingPage() {
             </g>
           </svg>
           <svg
-            className="mr-28 my-6 w-48 md:w-32 filter grayscale opacity-40"
+            className="mr-28 my-6 w-48 md:m-0 md:w-32 filter grayscale opacity-40"
             preserveAspectRatio="xMidYMid meet"
             viewBox="0 0 512 116"
           >
@@ -51,7 +51,7 @@ export default function LandingPage() {
             />
           </svg>
           <svg
-            className="ml-28 my-6 w-48 md:w-32 filter grayscale opacity-40"
+            className="ml-28 my-6 w-48 md:m-0 md:w-32 filter grayscale opacity-40"
             viewBox="-40.446 -22.19 350.532 133.14"
           >
             <path
@@ -77,7 +77,7 @@ export default function LandingPage() {
             />
           </svg>
           <svg
-            className="mr-28 my-6 w-48 md:w-32 filter grayscale opacity-40"
+            className="mr-28 my-6 w-48 md:m-0 md:w-32 filter grayscale opacity-40"
             viewBox="0 0 120 60"
           >
             <defs>
@@ -109,15 +109,15 @@ export default function LandingPage() {
       </div>
 
       {/* Section "How it works" */}
-      <div className="border">
-        <div className="flex flex-col items-center mt-12">
+      <div className="border md:border-0">
+        <div className="flex flex-col items-center mt-12 md:mt-20">
           <h3 className="text-4xl font-semibold">How it works</h3>
-          <p className="mt-7 mb-6 md:w-96 text-gray-500 text-center leading-7">
+          <p className="mt-7 mb-6 md:mb-0 md:w-96 text-gray-500 text-center leading-7">
             Lorem, ipsum dolor sit amet consectetur adip elit. Porro aliquid
             illo, quis repellendus expedita
           </p>
         </div>
-        <div className="flex flex-row flex-wrap justify-center md:mt-20 md:mx-20 md:space-x-44">
+        <div className="flex flex-row flex-wrap md:flex-nowrap md:justify-start justify-center md:mt-20 md:mx-20 md:space-x-44">
           <Bla></Bla>
           <Bla></Bla>
           <Bla></Bla>
@@ -125,13 +125,13 @@ export default function LandingPage() {
       </div>
 
       {/* Section Contact */}
-      <div className="mt-20 pt-20 flex flex-col items-center border-gray-200 border-t">
+      <div className="mt-20 pt-20 mb-20 flex flex-col items-center border-gray-200 border-t">
         <p className="text-4xl font-semibold">Get in touch</p>
         <p className="mt-2 text-gray-500 text-sm">Ask us stuff or send memes</p>
         <a href="mailto:Sandra.Rudeloff@the-klu.org" className="mt-8">
           <svg
             viewBox="0 0 24 24"
-            className="w-24 h-24 fill-current text-gray-500"
+            className="w-24 h-24 md:w-16 md:h-16 fill-current text-gray-500"
           >
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z" />
@@ -144,7 +144,7 @@ export default function LandingPage() {
 
 function Bla() {
   return (
-    <div className="mt-8 mb-4">
+    <div className="mt-8 mb-4 md:m-0">
       <svg
         className="mx-auto"
         xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +257,7 @@ function Bla() {
       <h3 className="text-center text-xl font-semibold mt-6 md:mt-12">
         Information
       </h3>
-      <p className="mt-4 md:mt-6 leading-6 text-base text-center text-gray-500">
+      <p className="mt-4 md:mt-6 leading-6 md:leading-7 md:text-sm text-base text-center text-gray-500">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum vitae
         labore
       </p>
