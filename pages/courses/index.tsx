@@ -28,7 +28,7 @@ export async function getServerSideProps(context: NextPageContext) {
     props: {
       courses: await prisma.course.findMany({
         orderBy: { start: "asc" },
-        where: { creatorId: session.user.id },
+        where: { creatorId: session.user.id, deletedAt: null },
       }),
     },
   };

@@ -17,7 +17,7 @@ export async function getStaticProps() {
     props: {
       courses: await prisma.course.findMany({
         orderBy: { start: "asc" },
-        where: { start: { gte: new Date() } },
+        where: { start: { gte: new Date() }, deletedAt: null },
       }),
     },
     revalidate: 5,
