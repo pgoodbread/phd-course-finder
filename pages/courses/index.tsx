@@ -1,6 +1,6 @@
 import { Course } from ".prisma/client";
 import { getSession } from "next-auth/client";
-import { NextPageContext } from "next/dist/next-server/lib/utils";
+import { NextPageContext } from "next";
 import CourseTable from "../../components/CourseTable";
 import prisma from "../../lib/prisma";
 
