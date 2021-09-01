@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { getCsrfToken } from "next-auth/client";
-
+import ButtonStyle from "../components/ButtonStyle";
 export default function Login({
   csrfToken,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
@@ -52,18 +52,9 @@ export default function Login({
           </div>
 
           <div>
-            <button
-              type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary border hover:border-primary hover:text-primary hover:bg-white focus:outline-none"
-            >
-              <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                <div
-                  className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                  aria-hidden="true"
-                />
-              </span>
-              Sign in
-            </button>
+            <ButtonStyle>
+              <button type="submit">Sign in</button>
+            </ButtonStyle>
           </div>
         </form>
       </div>

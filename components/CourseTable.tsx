@@ -1,8 +1,9 @@
 import { Course } from ".prisma/client";
 import { useSession } from "next-auth/client";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
-import Button from "./Button";
+import ButtonStyle from "./ButtonStyle";
 import DeleteButton from "./DeleteButton";
 
 type SortConfig = {
@@ -207,33 +208,38 @@ export default function CourseTable({
                       </td>
 
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a
-                          onClick={() => {
-                            if (session) {
-                              return;
-                            }
+                        <Link href={course.link}>
+                          <ButtonStyle>
+                            <a
+                              className="mr-2"
+                              onClick={() => {
+                                if (session) {
+                                  return;
+                                }
 
-                            fetch("/api/course_clicks", {
-                              method: "POST",
-                              body: JSON.stringify({ courseId: course.id }),
-                            });
-                          }}
-                          href={course.link}
-                          target="_blank"
-                          rel="noopener"
-                          className="bg-primary  hover:text-primary hover:bg-white border hover:border-primary text-white px-4 py-2 rounded mr-4"
-                        >
-                          Visit
-                        </a>
+                                fetch("/api/course_clicks", {
+                                  method: "POST",
+                                  body: JSON.stringify({ courseId: course.id }),
+                                });
+                              }}
+                              target="_blank"
+                              rel="noopener"
+                            >
+                              Visit
+                            </a>
+                          </ButtonStyle>
+                        </Link>
+
                         {allowEdit ? (
                           <>
-                            <Button href={`/courses/edit/${course.id}`}>
-                              Edit
-                            </Button>
+                            <Link href={`/courses/edit/${course.id}`}>
+                              <ButtonStyle>
+                                <a className="mr-2">Edit</a>
+                              </ButtonStyle>
+                            </Link>
                             <DeleteButton
                               onDelete={() => deleteCourse(course)}
                             />
-                            "
                           </>
                         ) : null}
                       </td>
