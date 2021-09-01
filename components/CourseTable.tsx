@@ -89,9 +89,10 @@ export default function CourseTable({
   }
 
   async function deleteCourse(course: Course) {
-    fetch(`/api/courses/${course.id}`, {
+    await fetch(`/api/courses/${course.id}`, {
       method: "DELETE",
     });
+    router.reload();
   }
 
   function TableHeader({ name }: { name: keyof Course }) {

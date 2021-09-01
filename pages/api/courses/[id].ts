@@ -63,21 +63,27 @@ async function handleDelete(
     return response.status(422).json("Url parameter not valid");
   }
 
+  console.log(request.query);
+
   const session = await getSession({ req: request });
   if (!session) {
     return response.status(401).json("Not authenticated");
   }
+  console.log(session.user);
 
-  await prisma.user.update({
-    where: { id: session.user.id },
-    data: {
-      courses: {
-        delete: {
-          id: request.query.id,
+  try {
+    await prisma.user.update({
+      where: { id: session.user.id },
+      data: {
+        courses: {
+          delete: {
+            id: request.query.id,
+          },
         },
       },
-    },
-  });
-
-  return response.status(200).json("");
+    });
+    return response.status(200).json("");
+  } catch (e: any) {
+    console.log(e);
+  }
 }
