@@ -54,7 +54,8 @@ export default function CourseTable({
       (course) =>
         course.name.toLowerCase().includes(filterInput.toLowerCase()) ||
         course.institution.toLowerCase().includes(filterInput.toLowerCase()) ||
-        course.location?.toLowerCase().includes(filterInput.toLowerCase())
+        course.location?.toLowerCase().includes(filterInput.toLowerCase()) ||
+        course.lecturer?.toLowerCase().includes(filterInput.toLowerCase())
     );
 
     return filteredCourses.sort((a, b) => {
