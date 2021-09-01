@@ -2,6 +2,7 @@ import { Form, Formik, FormikHelpers } from "formik";
 import { FormInput } from "../components";
 import { CourseValidation } from "../lib/validation";
 import { RawCourse } from "../types";
+import ButtonStyle from "./ButtonStyle";
 
 export default function CourseForm({
   initialValues = {
@@ -75,14 +76,11 @@ export default function CourseForm({
           <p className="text-sm font-medium text-gray-400 capitalize mb-4">
             <span className="text-primary font-bold">*</span> Required Fields
           </p>
-
-          <button
-            className="bg-primary mb-4 hover:text-primary hover:bg-white border hover:border-primary text-white px-4 py-2 rounded"
-            type="submit"
-            disabled={isSubmitting}
-          >
-            Submit
-          </button>
+          <ButtonStyle>
+            <button type="submit" disabled={isSubmitting}>
+              Submit
+            </button>
+          </ButtonStyle>
         </Form>
       )}
     </Formik>

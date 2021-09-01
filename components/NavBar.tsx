@@ -4,6 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/client";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import ButtonStyle from "./ButtonStyle";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -114,12 +115,9 @@ export default function NavBar() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {!session && router.route !== "/login" && (
                   <>
-                    <button
-                      className="bg-primary hover:text-primary hover:bg-white border hover:border-primary cursor-pointer text-white px-4 py-2 rounded mr-4 focus:outline-none"
-                      onClick={() => signIn()}
-                    >
-                      Sign In
-                    </button>
+                    <ButtonStyle>
+                      <button onClick={() => signIn()}>Sign In</button>
+                    </ButtonStyle>
                   </>
                 )}
                 {session && (
