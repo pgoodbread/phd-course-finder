@@ -172,40 +172,40 @@ export default function CourseTable({
                 <tbody className="bg-white divide-y divide-gray-200">
                   {sortedAndFilteredCourses.map((course) => (
                     <tr key={course.id}>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4">
                         <div className="flex items-center">
                           <div>
-                            <div className="text-sm font-medium text-gray-900">
+                            <div className="text-sm font-medium text-gray-900 truncate max-w-md">
                               {course.name}
                             </div>
-                            <div className="text-sm text-gray-500">
+                            <div className="text-sm text-gray-500 truncate max-w-md">
                               {course.lecturer}
                             </div>
                           </div>
                         </div>
                       </td>
 
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-500 truncate max-w-md">
                         {course.institution}
                       </td>
 
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-500 truncate max-w-xs">
                         {course.start.toLocaleDateString()}
                       </td>
 
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-500 truncate max-w-xs">
                         {course.end.toLocaleDateString()}
                       </td>
 
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-500 truncate max-w-md">
                         {course.location}
                       </td>
 
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-500 truncate max-w-xs">
                         {course.fee !== null ? course.fee + "€" : "-"}
                       </td>
 
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-500 truncate max-w-xs">
                         {course.credits !== null ? course.credits : "-"}
                       </td>
 
