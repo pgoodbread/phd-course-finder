@@ -1,8 +1,8 @@
 import { Course } from ".prisma/client";
-import { getSession } from "next-auth/client";
 import { NextPageContext } from "next";
-import CourseTable from "../../components/CourseTable";
-import prisma from "../../lib/prisma";
+import { getSession } from "next-auth/client";
+import CourseTable from "../../../components/CourseTable";
+import prisma from "../../../lib/prisma";
 
 export default function Courses({ courses }: { courses: Course[] }) {
   return (
