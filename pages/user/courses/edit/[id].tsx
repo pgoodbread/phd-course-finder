@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import React from "react";
 import CourseForm, {
   replaceEmptyStringWithNull,
-} from "../../../components/CourseForm";
-import prisma from "../../../lib/prisma";
+} from "../../../../components/CourseForm";
+import prisma from "../../../../lib/prisma";
 
 export default function EditCourse({ course }: { course: Course }) {
   const router = useRouter();

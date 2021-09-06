@@ -4,7 +4,7 @@ import { getSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import CourseForm, {
   replaceEmptyStringWithNull,
-} from "../../components/CourseForm";
+} from "../../../components/CourseForm";
 
 export default function CreateCourse({ user }: { user: User }) {
   const router = useRouter();
