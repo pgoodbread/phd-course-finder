@@ -11,20 +11,20 @@ function classNames(...classes: string[]) {
 }
 
 export default function NavBar() {
-  const [session] = useSession();
+  const [session, loading] = useSession();
   const router = useRouter();
 
   const [navigation, setNavigation] = useState([
-    { name: "Home", href: "/", current: false, onlySignedIn: false },
+    { name: "Courses", href: "/courses", current: false, onlySignedIn: false },
     {
       name: "My Courses",
-      href: "/courses",
+      href: "/user/courses",
       current: false,
       onlySignedIn: true,
     },
     {
       name: "Create Course",
-      href: "/courses/create",
+      href: "/user/courses/create",
       current: false,
       onlySignedIn: true,
     },
@@ -113,14 +113,14 @@ export default function NavBar() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                {!session && router.route !== "/login" && (
+                {!loading && !session && router.route !== "/login" && (
                   <>
                     <ButtonStyle>
                       <button onClick={() => signIn()}>Sign In</button>
                     </ButtonStyle>
                   </>
                 )}
-                {session && (
+                {!loading && session && (
                   <>
                     <span className="mr-5 hidden md:block">
                       {session.user.email}
