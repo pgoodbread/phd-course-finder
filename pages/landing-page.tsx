@@ -5,12 +5,13 @@ export default function LandingPage() {
         {/* Section Intro Text & CTA Button */}
         <div className="w-full md:w-1/2 bg-gray-50">
           <div className="mt-24 mb-20 mx-8 md:my-28 md:mx-16">
-            <h2 className="text-5xl bold font-extrabold">Life should</h2>
-            <h2 className="text-5xl bold font-extrabold">be easy</h2>
+            <h2 className="text-5xl bold font-extrabold">
+              To bring academic Courses to you.
+            </h2>
 
             <p className="mt-12 mb-8 text-gray-500 md:mt-8 w-72 leading-7">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Voluptate eaque reiciendis dasdasd ds
+              Less time spent on searching and administrating means more time
+              for research exchange.
             </p>
 
             <button className="mt-8 md:mt-14 bg-black px-8 py-3 rounded-xl text-white">
