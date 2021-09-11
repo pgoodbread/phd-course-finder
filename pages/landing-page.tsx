@@ -1,3 +1,5 @@
+import ButtonStyle from "../components/ButtonStyle";
+
 export default function LandingPage() {
   return (
     <div className="md:mx-28">
@@ -6,17 +8,15 @@ export default function LandingPage() {
         <div className="w-full md:w-1/2 bg-gray-50">
           <div className="mt-24 mb-20 mx-8 md:my-28 md:mx-16">
             <h2 className="text-5xl bold font-extrabold">
-              To bring academic Courses to you.
+              Bringing academic courses to you.
             </h2>
 
-            <p className="mt-12 mb-8 text-gray-500 md:mt-8 w-72 leading-7">
-              Less time spent on searching and administrating means more time
-              for research exchange.
+            <p className="mt-12 mb-8 text-gray-500 md:mt-8 w-96 leading-7">
+              Less time searching, more time learning and researching.
             </p>
-
-            <button className="mt-8 md:mt-14 bg-black px-8 py-3 rounded-xl text-white">
-              Get started
-            </button>
+            <ButtonStyle>
+              <button>Get started</button>
+            </ButtonStyle>
           </div>
         </div>
         {/* Section Gradient Info */}
