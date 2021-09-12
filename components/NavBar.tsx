@@ -1,4 +1,4 @@
-import { Disclosure } from "@headlessui/react";
+import { Disclosure, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { signIn, signOut, useSession } from "next-auth/client";
 import Link from "next/link";
@@ -54,14 +54,13 @@ export default function NavBar() {
       as="nav"
       className="shadow border-b-1 border-gray-200 bg-white sticky top-0 z-50"
     >
-      {({ open }) => (
+      {({ open, close }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-14">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
@@ -144,6 +143,7 @@ export default function NavBar() {
                 .map((item) => (
                   <Link href={item.href} key={item.name}>
                     <a
+                      onClick={() => close()}
                       className={classNames(
                         item.current
                           ? "text-gray-900 border-l-4 border-primary"
