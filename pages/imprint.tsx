@@ -14,7 +14,16 @@ export default function Imprint() {
 
         <h3 className="font-bold leading-7 sm:text-lg mt-4">Kontakt</h3>
         <span className="mt-4">Telefon: 0172 253 6643</span>
-        <span>E-Mail: Sandra.Rudeloff[at]the-klu.org</span>
+        <span>
+          {" "}
+          Email:{" "}
+          <a
+            href="mailto:Sandra.Rudeloff@the-klu.org"
+            className="hover:text-primary"
+          >
+            Sandra.Rudeloff@the-klu.org
+          </a>
+        </span>
 
         <h3 className="font-bold leading-7 sm:text-lg mt-4">
           Haftung für Inhalte{" "}
