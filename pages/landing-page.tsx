@@ -11,7 +11,7 @@ export default function LandingPage() {
               Bringing academic courses to you.
             </h2>
 
-            <p className="mt-12 mb-8 text-gray-500 md:mt-8 w-96 leading-7">
+            <p className="mt-12 mb-8 text-gray-500 md:mt-8 leading-7">
               Less time searching, more time learning and researching.
             </p>
             <ButtonStyle>
@@ -20,7 +20,9 @@ export default function LandingPage() {
           </div>
         </div>
         {/* Section Gradient Info */}
-        <div className="w-full md:w-1/2 bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 invisible md:visible"></div>
+        <div className="w-full md:w-1/2 bg-gradient-to-br from-primary via-champagnePink to-lightPink invisible md:visible">
+          {" "}
+        </div>
       </div>
       {/* Section Partner Logos */}
       <div className="md:mt-20 md:flex md:items-center">
@@ -127,18 +129,34 @@ export default function LandingPage() {
 
       {/* Section Contact */}
       <div className="mt-20 pt-20 mb-20 flex flex-col items-center border-gray-200 border-t">
-        <p className="text-4xl font-semibold">Get in touch</p>
-        <p className="mt-2 text-gray-500 text-sm">Ask us stuff or send memes</p>
-        <a href="mailto:Sandra.Rudeloff@the-klu.org" className="mt-8">
+        <p className="text-4xl font-semibold">We'd love to hear from you!</p>
+        <p className="mt-2 text-gray-500 text-sm">
+          You want to offer courses on our platform?
+        </p>
+
+        <div className="w-40">
+          <ButtonStyle>
+            <a
+              className=" inline-flex items-center"
+              href="mailto:Sandra.Rudeloff@the-klu.org"
+            >
           <svg
+                className="w-4 h-4 mr-2 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            className="w-24 h-24 md:w-16 md:h-16 fill-current text-gray-500"
           >
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z" />
           </svg>
+
+              <span>Send E-Mail</span>
         </a>
+          </ButtonStyle>
       </div>
+      </div>
+    </div>
+  );
+}
     </div>
   );
 }
