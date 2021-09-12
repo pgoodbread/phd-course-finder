@@ -9,23 +9,23 @@ export default function LandingPage() {
         {/* Section Intro Text & CTA Button */}
         <div className="w-full md:w-1/2 bg-gray-50">
           <div className="mt-24 mb-20 mx-8 md:my-28 md:mx-16">
-            <h2 className="text-5xl bold font-extrabold">
+            <h2 className="text-5xl leading-tight bold font-extrabold">
               Bringing Academic Courses to You.
             </h2>
 
-            <p className="mt-12 mb-8 text-gray-500 md:mt-8 leading-7">
+            <p className="mt-12 mb-10 text-gray-500 md:mt-8 leading-7">
               Less time searching, more time learning and researching.
             </p>
 
             <Link href="/courses">
               <ButtonStyle>
-                <a>Get started</a>
+                <a className="text-xl font-bold px-8 py-3">Get started</a>
               </ButtonStyle>
             </Link>
           </div>
         </div>
         {/* Section Gradient Info */}
-        <div className="w-full flex items-center md:w-1/2 bg-gradient-to-br from-primary via-champagnePink to-lightPink invisible md:visible">
+        <div className="w-full bg-gradient-to-br from-primary via-champagnePink to-lightPink hidden md:flex md:items-center md:w-1/2">
           <div className="mx-8">
             <Image
               src="/table-example-picture.png"
@@ -124,7 +124,7 @@ export default function LandingPage() {
       </div> */}
 
       {/* Section "How it works" */}
-      <div className="border-t md:border-0 mx-8">
+      <div className="mx-8">
         <div className="flex flex-col items-center mt-12 md:mt-20">
           <h3 className="text-4xl font-semibold">How it works</h3>
           <p className="mt-7 mb-6 md:mb-0 md:w-6/12 text-gray-500 text-center leading-7">
@@ -133,7 +133,7 @@ export default function LandingPage() {
             complexity of finding the right courses.
           </p>
         </div>
-        <div className="flex flex-row flex-wrap md:flex-nowrap md:justify-start justify-center md:mt-20 md:mx-20 md:space-x-44">
+        <div className="flex flex-col justify-center md:flex-row md:flex-nowrap md:justify-start md:mt-20 md:mx-20 md:space-x-44">
           <Find></Find>
           <Connect></Connect>
           <Efficient></Efficient>
@@ -141,7 +141,7 @@ export default function LandingPage() {
       </div>
 
       {/* Section Contact */}
-      <div className="mt-16 pt-16 mb-16 flex flex-col items-center border-gray-200 border-t">
+      <div className="mt-16 px-8 pt-16 pb-16 bg-gray-50 flex flex-col items-center border-gray-200 border-t md:bg-white">
         <p className="text-4xl font-semibold mb-4">
           We'd love to hear from you!
         </p>
@@ -149,14 +149,14 @@ export default function LandingPage() {
           You want to offer courses on our platform or just get in touch?
         </p>
 
-        <div className="w-40">
+        <div className="w-full text-lg text-center md:w-48 md:text-base">
           <ButtonStyle>
             <a
-              className=" inline-flex items-center"
+              className="inline-flex items-center justify-center"
               href="mailto:Sandra.Rudeloff@the-klu.org"
             >
               <svg
-                className="w-4 h-4 mr-2 fill-current"
+                className="w-6 h-6 mr-4 md:w-4 md:h-4 md:mr-2 fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -181,7 +181,7 @@ function Find() {
         xmlns="http://www.w3.org/2000/svg"
         height="50%"
         width="100%"
-        viewBox="0 0 700 700"
+        viewBox="0 0 578.0013 621.92557"
       >
         <path
           d="M366.643 352.86l-249.849 64.339a33.037 33.037 0 01-40.187-23.728L1.047 100.044a33.037 33.037 0 0123.727-40.187L257.218 0l59.495 26.634 73.658 286.04a33.037 33.037 0 01-23.728 40.186z"
@@ -359,13 +359,13 @@ function Find() {
 
 function Connect() {
   return (
-    <div className="mt-8 mb-4 md:m-0 w-1/3">
+    <div className="mt-8 mb-4 md:m-0 md:w-1/3">
       <svg
         className="mx-auto"
         xmlns="http://www.w3.org/2000/svg"
         height="50%"
         width="100%"
-        viewBox="0 -100 1200 1200"
+        viewBox="0 0 1176.60617 873.97852"
       >
         <path
           d="M1083.967 212.452C950.424 26.622 668.322-48.76 390.883 32.428 244.21 75.348 102.79 161.348 32.705 327.868-92.578 625.545 170.47 720.615 342.475 750.915c83.173 14.651 161.507 39.262 233.09 72.77 128.783 60.285 356.738 113.703 528.632-137.409 124.588-182.006 68.722-350.042-20.23-473.823z"
@@ -428,7 +428,7 @@ function Efficient() {
         xmlns="http://www.w3.org/2000/svg"
         height="50%"
         width="100%"
-        viewBox="0 -100 1200 1200"
+        viewBox="0 0 1037.94 772.29"
       >
         <defs>
           <linearGradient
