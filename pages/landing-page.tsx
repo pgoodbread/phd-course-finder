@@ -150,23 +150,22 @@ export default function LandingPage() {
         </p>
 
         <div className="w-full text-lg text-center md:w-48 md:text-base">
-          <ButtonStyle>
-            <a
-              className="inline-flex items-center justify-center"
-              href="mailto:Sandra.Rudeloff@the-klu.org"
-            >
-              <svg
-                className="w-6 h-6 mr-4 md:w-4 md:h-4 md:mr-2 fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path fill="none" d="M0 0h24v24H0z" />
-                <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z" />
-              </svg>
+          <Link href="mailto:Sandra.Rudeloff@the-klu.org" passHref>
+            <ButtonStyle>
+              <a className="inline-flex items-center justify-center">
+                <svg
+                  className="w-6 h-6 mr-4 md:w-4 md:h-4 md:mr-2 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path fill="none" d="M0 0h24v24H0z" />
+                  <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z" />
+                </svg>
 
-              <span>Send E-Mail</span>
-            </a>
-          </ButtonStyle>
+                <span>Send E-Mail</span>
+              </a>
+            </ButtonStyle>
+          </Link>
         </div>
       </div>
     </div>
