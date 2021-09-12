@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import ButtonStyle from "../components/ButtonStyle";
 
 export default function LandingPage() {
@@ -17,7 +17,7 @@ export default function LandingPage() {
               Less time searching, more time learning and researching.
             </p>
 
-            <Link href="/courses">
+            <Link href="/courses" passHref>
               <ButtonStyle>
                 <a className="text-xl font-bold px-8 py-3">Get started</a>
               </ButtonStyle>

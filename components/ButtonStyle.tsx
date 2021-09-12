@@ -4,8 +4,11 @@ const ButtonStyle = React.forwardRef(
   (
     {
       children,
+      href,
     }: {
       children: React.ReactElement;
+      href?: string;
+      onClick?: () => void;
     },
     ref
   ) => {
@@ -16,6 +19,7 @@ const ButtonStyle = React.forwardRef(
             className:
               "w-full border border-primary bg-primary hover:text-primary hover:bg-white text-white px-4 py-2 rounded my-4 focus:outline-none " +
               child.props.className,
+            href,
             ref,
           });
         })}

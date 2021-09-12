@@ -210,7 +210,7 @@ export default function CourseTable({
                       </td>
 
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <Link href={course.link}>
+                        <Link href={course.link} passHref>
                           <ButtonStyle>
                             <a
                               className="mr-2"
@@ -234,7 +234,7 @@ export default function CourseTable({
 
                         {allowEdit ? (
                           <>
-                            <Link href={`/courses/edit/${course.id}`}>
+                            <Link href={`/courses/edit/${course.id}`} passHref>
                               <ButtonStyle>
                                 <a className="mr-2">Edit</a>
                               </ButtonStyle>
