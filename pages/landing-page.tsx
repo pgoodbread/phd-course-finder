@@ -141,9 +141,11 @@ export default function LandingPage() {
       </div>
 
       {/* Section Contact */}
-      <div className="mt-20 pt-20 mb-20 flex flex-col items-center border-gray-200 border-t">
-        <p className="text-4xl font-semibold">We'd love to hear from you!</p>
-        <p className="mt-2 text-gray-500 text-sm">
+      <div className="mt-16 pt-16 mb-16 flex flex-col items-center border-gray-200 border-t">
+        <p className="text-4xl font-semibold mb-4">
+          We'd love to hear from you!
+        </p>
+        <p className="mt-2 text-gray-500 text-sm mb-8">
           You want to offer courses on our platform or just get in touch?
         </p>
 
@@ -347,9 +349,7 @@ function Find() {
         />
       </svg>
 
-      <h3 className="text-center text-xl font-semibold mt-6 md:mt-12">
-        Finding
-      </h3>
+      <h3 className="text-center text-xl font-semibold mt-6 md:mt-12">Find</h3>
       <p className="mt-4 md:mt-6 leading-6 md:leading-7 md:text-sm text-base text-center text-gray-500">
         Find relevant courses for your research.
       </p>
@@ -410,7 +410,7 @@ function Connect() {
         <circle cx="600.352" cy="480.675" r="11.968" fill="#50e3c2" />
       </svg>
       <h3 className="text-center text-xl font-semibold mt-6 md:mt-12">
-        Connecting
+        Connect
       </h3>
       <p className="mt-4 md:mt-6 leading-6 md:leading-7 md:text-sm text-base text-center text-gray-500">
         Connect with students, researchers and professors from different
@@ -608,7 +608,7 @@ function Efficient() {
       </svg>
 
       <h3 className="text-center text-xl font-semibold mt-6 md:mt-12">
-        Being efficient
+        Be efficient
       </h3>
       <p className="mt-4 md:mt-6 leading-6 md:leading-7 md:text-sm text-base text-center text-gray-500">
         Be efficient and use your time meaningful.
