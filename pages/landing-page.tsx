@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import ButtonStyle from "../components/ButtonStyle";
 
 export default function LandingPage() {
@@ -24,8 +25,15 @@ export default function LandingPage() {
           </div>
         </div>
         {/* Section Gradient Info */}
-        <div className="w-full md:w-1/2 bg-gradient-to-br from-primary via-champagnePink to-lightPink invisible md:visible">
-          {" "}
+        <div className="w-full flex items-center md:w-1/2 bg-gradient-to-br from-primary via-champagnePink to-lightPink invisible md:visible">
+          <div className="mx-8">
+            <Image
+              src="/table-example-picture.png"
+              alt="Picture of the author"
+              width="964"
+              height="510"
+            />
+          </div>
         </div>
       </div>
       {/* Section Partner Logos */}
