@@ -234,7 +234,10 @@ export default function CourseTable({
 
                         {allowEdit ? (
                           <>
-                            <Link href={`/courses/edit/${course.id}`} passHref>
+                            <Link
+                              href={`/user/courses/edit/${course.id}`}
+                              passHref
+                            >
                               <ButtonStyle>
                                 <a className="mr-2">Edit</a>
                               </ButtonStyle>
