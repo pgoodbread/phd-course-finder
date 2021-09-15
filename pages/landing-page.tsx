@@ -4,8 +4,8 @@ import ButtonStyle from "../components/ButtonStyle";
 
 export default function LandingPage() {
   return (
-    <div className="md:mx-28">
-      <div className="flex flex-wrap md:flex-nowrap">
+    <div className="md:max-w-7xl md:mx-auto">
+      <div className="flex flex-wrap border-b md:flex-nowrap md:border-0">
         {/* Section Intro Text & CTA Button */}
         <div className="w-full md:w-1/2 bg-gray-50">
           <div className="mt-24 mb-20 mx-8 md:my-28 md:mx-16">
@@ -24,8 +24,9 @@ export default function LandingPage() {
             </Link>
           </div>
         </div>
+
         {/* Section Gradient Info */}
-        <div className="w-full bg-gradient-to-br from-primary via-champagnePink to-lightPink hidden md:flex md:items-center md:w-1/2">
+        <div className="w-full bg-gradient-to-br from-primary via-champagnePink to-lightPink hidden md:flex md:items-center md:justify-center md:w-1/2 md:py-20">
           <div className="mx-8">
             <Image
               src="/table-example-picture.png"
@@ -36,6 +37,7 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
+
       {/* Section Partner Logos */}
       {/* <div className="md:mt-20 md:flex md:items-center">
         <div className="text-4xl font-semibold mt-10 mb-10 text-center md:text-sm md:text-gray-500 md:border-gray-200 md:border-t md:mr-32 md:whitespace-nowrap">
@@ -132,16 +134,25 @@ export default function LandingPage() {
             level. The CourseHub streamlines course access and eliminates the
             complexity of finding the right courses.
           </p>
-        </div>
-        <div className="flex flex-col justify-center md:flex-row md:flex-nowrap md:justify-start md:mt-20 md:mx-20 md:space-x-44">
-          <Find></Find>
-          <Connect></Connect>
-          <Efficient></Efficient>
+          <div className="flex flex-col justify-center md:flex-row md:flex-nowrap md:justify-around md:mt-20 md:mx-20 md:space-x-44">
+            <Find></Find>
+            <Connect></Connect>
+            <Efficient></Efficient>
+          </div>
+          <div className="mt-10">
+            <Link href="/courses" passHref>
+              <ButtonStyle>
+                <a className="text-xl font-bold px-8 py-3 w-24">
+                  Browse Courses
+                </a>
+              </ButtonStyle>
+            </Link>
+          </div>
         </div>
       </div>
 
       {/* Section Contact */}
-      <div className="mt-16 px-8 pt-16 pb-16 bg-gray-50 flex flex-col items-center border-gray-200 border-t md:bg-white">
+      <div className="mt-16 px-8 pt-16 pb-12 bg-gray-50 flex flex-col items-center border-gray-200 border-t md:bg-white">
         <p className="text-4xl font-semibold mb-4">
           We'd love to hear from you!
         </p>
