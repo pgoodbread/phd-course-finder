@@ -14,6 +14,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           name="description"
           content="Centralized platform for PhD-level courses. Spend less time searching, more time researching."
         />
+        <script
+          defer
+          data-domain="coursehub.app"
+          src="https://plausible.io/js/plausible.js"
+        ></script>
       </Head>
       <Layout>
         <Component {...pageProps} />
