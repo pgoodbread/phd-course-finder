@@ -14,7 +14,7 @@ export default function LandingPage() {
             </h2>
 
             <p className="mt-12 mb-10 text-gray-500 md:mt-8 leading-7">
-              Less time searching, more time learning and researching.
+              Less time searching, more time researching.
             </p>
 
             <Link href="/courses" passHref>
@@ -126,17 +126,17 @@ export default function LandingPage() {
       {/* Section "How it works" */}
       <div className="mx-8">
         <div className="flex flex-col items-center mt-12 md:mt-20">
-          <h3 className="text-4xl font-semibold">How it works</h3>
+          <h3 className="text-4xl font-semibold">How It Works</h3>
           <p className="mt-7 mb-6 md:mb-0 md:w-6/12 text-gray-500 text-center leading-7">
-            On our platform institutions can offer courses on PhD and postdoc
-            level. The CourseHub streamlines course access and eliminates the
+            On our platform, institutions can offer courses on PhD and postdoc
+            level. CourseHub streamlines course access and eliminates the
             complexity of finding the right courses.
           </p>
         </div>
         <div className="flex flex-col justify-center md:flex-row md:flex-nowrap md:justify-start md:mt-20 md:mx-20 md:space-x-44">
-          <Find></Find>
+          <Discover></Discover>
           <Connect></Connect>
-          <Efficient></Efficient>
+          <Save_Time></Save_Time>
         </div>
       </div>
 
@@ -146,7 +146,8 @@ export default function LandingPage() {
           We'd love to hear from you!
         </p>
         <p className="mt-2 text-gray-500 text-sm mb-8">
-          You want to offer courses on our platform or just get in touch?
+          Interested in offering courses? Questions about our platform or course
+          offerings? Or just want to get in touch?
         </p>
 
         <div className="w-full text-lg text-center md:w-48 md:text-base">
@@ -172,7 +173,7 @@ export default function LandingPage() {
   );
 }
 
-function Find() {
+function Discover() {
   return (
     <div className="mt-8 mb-4 md:m-0">
       <svg
@@ -350,7 +351,7 @@ function Find() {
 
       <h3 className="text-center text-xl font-semibold mt-6 md:mt-12">Find</h3>
       <p className="mt-4 md:mt-6 leading-6 md:leading-7 md:text-sm text-base text-center text-gray-500">
-        Find relevant courses for your research.
+        Discover new courses to further your research.
       </p>
     </div>
   );
@@ -419,7 +420,7 @@ function Connect() {
   );
 }
 
-function Efficient() {
+function Save_Time() {
   return (
     <div className="mt-8 mb-4 md:m-0">
       <svg
@@ -607,10 +608,11 @@ function Efficient() {
       </svg>
 
       <h3 className="text-center text-xl font-semibold mt-6 md:mt-12">
-        Be efficient
+        Save time
       </h3>
       <p className="mt-4 md:mt-6 leading-6 md:leading-7 md:text-sm text-base text-center text-gray-500">
-        Be efficient and use your time meaningful.
+        Minimize the time you spend searching for courses on our streamlined
+        platform.
       </p>
     </div>
   );
