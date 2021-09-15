@@ -134,9 +134,9 @@ export default function CourseTable({
   }
 
   return (
-    <div className={`flex flex-col gap-6 ${className}`}>
+    <div className={`flex flex-col gap-6 mb-8 ${className}`}>
       <input
-        placeholder="Filter by name, institution and location"
+        placeholder="Filter by name, institution or location"
         className="border border-gray-400 w-100 md:w-96 rounded px-1 focus:outline-none focus:ring-primary focus:border-primary focus:z-10"
         type="text"
         value={filterInput}
@@ -149,7 +149,7 @@ export default function CourseTable({
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border border-gray-200 rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-gray-100">
                   <tr>
                     <TableHeader name="name" />
                     <TableHeader name="institution" />
@@ -170,8 +170,11 @@ export default function CourseTable({
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {sortedAndFilteredCourses.map((course) => (
-                    <tr key={course.id}>
+                  {sortedAndFilteredCourses.map((course, index) => (
+                    <tr
+                      key={course.id}
+                      className={index % 2 !== 0 ? "bg-gray-50" : ""}
+                    >
                       <td className="px-6 py-4">
                         <div className="flex items-center">
                           <div>
@@ -185,7 +188,7 @@ export default function CourseTable({
                         </div>
                       </td>
 
-                      <td className="px-6 py-4 text-sm text-gray-500 truncate max-w-md">
+                      <td className="px-6 py-4 text-sm text-gray-500 truncate max-w-xs">
                         {course.institution}
                       </td>
 
