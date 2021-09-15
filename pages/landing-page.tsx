@@ -30,7 +30,7 @@ export default function LandingPage() {
           <div className="mx-8">
             <Image
               src="/table-example-picture.png"
-              alt="Picture of the author"
+              alt="Picture of a smartphone showing a table of courses"
               width="1928"
               height="1020"
             />

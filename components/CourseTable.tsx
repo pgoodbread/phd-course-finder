@@ -1,4 +1,5 @@
 import { Course } from ".prisma/client";
+import dayjs from "dayjs";
 import { useSession } from "next-auth/client";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -193,11 +194,11 @@ export default function CourseTable({
                       </td>
 
                       <td className="px-6 py-4 text-sm text-gray-500 truncate max-w-xs">
-                        {course.start.toLocaleDateString()}
+                        {dayjs(course.start).format("DD MMM YYYY")}
                       </td>
 
                       <td className="px-6 py-4 text-sm text-gray-500 truncate max-w-xs">
-                        {course.end.toLocaleDateString()}
+                        {dayjs(course.end).format("DD MMM YYYY")}
                       </td>
 
                       <td className="px-6 py-4 text-sm text-gray-500 truncate max-w-md">

@@ -14,9 +14,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider session={pageProps.session}>
       <Head>
-        <title>PHD-Course-Finder</title>
+        <title>CourseHub</title>
         <link rel="shortcut icon" href="/favicon.ico" />
-        <meta name="description" content="Sick description" />
+        <meta
+          name="description"
+          content="Centralized platform for PhD-level courses. Spend less time searching, more time researching."
+        />
       </Head>
       <Layout>
         <Component {...pageProps} />
