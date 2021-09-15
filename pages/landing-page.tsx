@@ -142,9 +142,7 @@ export default function LandingPage() {
           <div className="mt-10">
             <Link href="/courses" passHref>
               <ButtonStyle>
-                <a className="text-xl font-bold px-8 py-3 w-24">
-                  Browse Courses
-                </a>
+                <a className="px-8 py-3 w-24">Browse Courses</a>
               </ButtonStyle>
             </Link>
           </div>
