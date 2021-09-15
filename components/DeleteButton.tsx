@@ -79,8 +79,10 @@ export default function DeleteButton({ onDelete }: { onDelete: () => void }) {
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
                           Are you sure you want to delete this course? All of
-                          the data will be permanently removed. This action
-                          cannot be undone.
+                          the data will be permanently removed.
+                          <p className="text-red-400 font-bold mt-2">
+                            This action cannot be undone.
+                          </p>
                         </p>
                       </div>
                     </div>
