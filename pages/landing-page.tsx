@@ -134,7 +134,7 @@ export default function LandingPage() {
             level. CourseHub streamlines course access and eliminates the
             complexity of finding the right courses.
           </p>
-          <div className="flex flex-col justify-center md:flex-row md:flex-nowrap md:justify-around md:mt-20 md:mx-20 md:space-x-44">
+          <div className="flex flex-col justify-center md:flex-row md:flex-nowrap md:justify-around md:mt-20 md:mb-8 md:mx-20 md:space-x-44">
             <Discover></Discover>
             <Connect></Connect>
             <Save_Time></Save_Time>
@@ -186,7 +186,7 @@ export default function LandingPage() {
 
 function Discover() {
   return (
-    <div className="mt-8 mb-4 md:m-0">
+    <div className="mt-8 mb-4 md:m-0 md:w-1/3">
       <svg
         className="mx-auto"
         xmlns="http://www.w3.org/2000/svg"
@@ -433,7 +433,7 @@ function Connect() {
 
 function Save_Time() {
   return (
-    <div className="mt-8 mb-4 md:m-0">
+    <div className="mt-8 mb-4 md:m-0 md:w-1/3">
       <svg
         className="mx-auto"
         xmlns="http://www.w3.org/2000/svg"
