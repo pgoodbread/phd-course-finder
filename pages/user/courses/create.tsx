@@ -19,7 +19,7 @@ export default function CreateCourse({ user }: { user: User }) {
           body: JSON.stringify(course),
         });
 
-        router.push("/courses");
+        router.push("/user/courses");
 
         setSubmitting(false);
       }}

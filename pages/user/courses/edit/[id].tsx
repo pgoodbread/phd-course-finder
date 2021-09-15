@@ -32,7 +32,7 @@ export default function EditCourse({ course }: { course: Course }) {
           body: JSON.stringify(course),
         });
 
-        router.push("/courses");
+        router.push("/user/courses");
 
         setSubmitting(false);
       }}
