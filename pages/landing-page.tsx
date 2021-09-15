@@ -31,8 +31,8 @@ export default function LandingPage() {
             <Image
               src="/table-example-picture.png"
               alt="Picture of the author"
-              width="964"
-              height="510"
+              width="1928"
+              height="1020"
             />
           </div>
         </div>
