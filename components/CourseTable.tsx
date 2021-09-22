@@ -167,6 +167,15 @@ export default function CourseTable({
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-100">
                   <tr>
+                    <th scope="col" className="relative pl-6 pr-2 py-3 md:px-6">
+                      <span className="sr-only">Visit</span>
+                      {allowEdit ? (
+                        <>
+                          <span className="sr-only">Edit</span>
+                          <span className="sr-only">Delete</span>
+                        </>
+                      ) : null}
+                    </th>
                     <TableHeader name="name" />
                     <TableHeader name="institution" />
                     <TableHeader name="start" />
@@ -191,7 +200,46 @@ export default function CourseTable({
                       key={course.id}
                       className={index % 2 !== 0 ? "bg-gray-50" : ""}
                     >
-                      <td className="px-6 py-4">
+                      <td className="pl-6 pr-2 py-4 whitespace-nowrap text-right text-sm font-medium md:px-6">
+                        <Link href={course.link} passHref>
+                          <ButtonStyle>
+                            <a
+                              className="mr-2"
+                              onClick={() => {
+                                if (session) {
+                                  return;
+                                }
+
+                                fetch("/api/course_clicks", {
+                                  method: "POST",
+                                  body: JSON.stringify({ courseId: course.id }),
+                                });
+                              }}
+                              target="_blank"
+                              rel="noopener"
+                            >
+                              Visit
+                            </a>
+                          </ButtonStyle>
+                        </Link>
+
+                        {allowEdit ? (
+                          <>
+                            <Link
+                              href={`/user/courses/edit/${course.id}`}
+                              passHref
+                            >
+                              <ButtonStyle>
+                                <a className="mr-2">Edit</a>
+                              </ButtonStyle>
+                            </Link>
+                            <DeleteButton
+                              onDelete={() => deleteCourse(course)}
+                            />
+                          </>
+                        ) : null}
+                      </td>
+                      <td className="pl-2 pr-6 py-4 md:px-6">
                         <div className="flex items-center">
                           <div>
                             <div className="text-sm font-medium text-gray-900 truncate max-w-md">
