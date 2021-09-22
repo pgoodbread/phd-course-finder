@@ -152,7 +152,7 @@ export default function CourseTable({
           target="_blank"
           className="hidden md:block"
         >
-          <Image
+          <img
             src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=313178&theme=light"
             alt="CourseHub - Spend less time searching, more time researching. | Product Hunt"
             width="250"
