@@ -27,7 +27,7 @@ export default function LandingPage() {
                 href="https://www.producthunt.com/posts/coursehub?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-coursehub"
                 target="_blank"
               >
-                <Image
+                <img
                   src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=313178&theme=light"
                   alt="CourseHub - Spend less time searching, more time researching. | Product Hunt"
                   width="250"
