@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
 import ButtonStyle from "./ButtonStyle";
-import Image from "next/image";
 import DeleteButton from "./DeleteButton";
 
 type SortConfig = {
@@ -137,29 +136,15 @@ export default function CourseTable({
 
   return (
     <div className={`flex flex-col gap-6 mb-8 ${className}`}>
-      <div className="flex flex-row justify-between">
-        <input
-          placeholder="Filter by name, institution or location"
-          className="w-full border border-gray-400 w-100 md:w-96 rounded px-1 focus:outline-none focus:ring-primary focus:border-primary focus:z-10"
-          type="text"
-          value={filterInput}
-          onChange={(event) => {
-            setFilterInput(event.target.value);
-          }}
-        />
-        <a
-          href="https://www.producthunt.com/posts/coursehub?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-coursehub"
-          target="_blank"
-          className="hidden md:block"
-        >
-          <img
-            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=313178&theme=light"
-            alt="CourseHub - Spend less time searching, more time researching. | Product Hunt"
-            width="250"
-            height="54"
-          />
-        </a>
-      </div>
+      <input
+        placeholder="Filter by name, institution or location"
+        className="border border-gray-400 w-100 md:w-96 rounded px-1 focus:outline-none focus:ring-primary focus:border-primary focus:z-10"
+        type="text"
+        value={filterInput}
+        onChange={(event) => {
+          setFilterInput(event.target.value);
+        }}
+      />
       <div className={`flex flex-col`}>
         <div className="-my-2 overflow-x-scroll sm:-mx-6 md:-mx-8 md:overflow-x-auto">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
