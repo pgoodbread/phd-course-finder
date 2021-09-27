@@ -8,7 +8,7 @@ export default function LandingPage() {
       <div className="flex flex-wrap border-b md:flex-nowrap md:border-0">
         {/* Section Intro Text & CTA Button */}
         <div className="w-full md:w-1/2 bg-gray-50">
-          <div className="mt-24 mb-12 mx-8 md:mt-28 md:mb-12 md:mx-16">
+          <div className="mt-24 mb-20 mx-8 md:my-28 md:mx-16">
             <h2 className="text-5xl leading-tight bold font-extrabold">
               Bringing Academic Courses to You.
             </h2>
@@ -22,19 +22,6 @@ export default function LandingPage() {
                 <a className="text-xl font-bold px-8 py-3">Get started</a>
               </ButtonStyle>
             </Link>
-            <div className="mt-12 md:mt-8">
-              <a
-                href="https://www.producthunt.com/posts/coursehub?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-coursehub"
-                target="_blank"
-              >
-                <img
-                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=313178&theme=light"
-                  alt="CourseHub - Spend less time searching, more time researching. | Product Hunt"
-                  width="250"
-                  height="54"
-                />
-              </a>
-            </div>
           </div>
         </div>
 
