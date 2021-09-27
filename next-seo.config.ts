@@ -7,7 +7,7 @@ const SEO: NextSeoProps = {
   twitter: {
     handle: "@CourseHub_App",
     site: "@CourseHub_App",
-    cardType: "summary",
+    cardType: "summary_large_image",
   },
   description:
     "Centralized platform for PhD-level courses. Spend less time searching, more time researching.",
