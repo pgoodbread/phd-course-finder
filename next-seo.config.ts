@@ -17,7 +17,7 @@ const SEO: NextSeoProps = {
       "Centralized platform for PhD-level courses. Spend less time searching, more time researching.",
     images: [
       {
-        url: "http://cousehub.app/logo-with-text.svg",
+        url: "http://cousehub.app/twitter-card-image.png",
         width: 146,
         height: 150,
         alt: "CourseHub Logo with Text",
