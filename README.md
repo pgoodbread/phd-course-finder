@@ -24,3 +24,13 @@ docker run --name postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgr
 ## Architecture
 
 ![Draw.io diagram](diagrams/mvp-architecture-overview.svg)
+
+## SQL Snippets
+
+```sql
+
+# change courses to  another user
+
+update courses set creator_id='<user_id>' where institution='<institution>';
+
+```
