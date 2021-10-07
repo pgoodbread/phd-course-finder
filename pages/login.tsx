@@ -1,6 +1,7 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { getCsrfToken } from "next-auth/client";
 import ButtonStyle from "../components/ButtonStyle";
+
 export default function Login({
   csrfToken,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {

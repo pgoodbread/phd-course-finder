@@ -1,6 +1,7 @@
 import { Course } from ".prisma/client";
 import dayjs from "dayjs";
 import { useSession } from "next-auth/client";
+import { usePlausible } from "next-plausible";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
@@ -21,6 +22,7 @@ export default function CourseTable({
   courses: Course[];
   allowEdit?: boolean;
 }) {
+  const plausible = usePlausible();
   const [filterInput, setFilterInput] = useState("");
   const [sortConfig, setSortConfig] = useState<SortConfig>({
     key: "start",
@@ -191,6 +193,10 @@ export default function CourseTable({
                             <a
                               className="mr-2"
                               onClick={() => {
+                                plausible("Visit", {
+                                  props: { url: course.link },
+                                });
+
                                 if (session) {
                                   return;
                                 }
@@ -267,6 +273,10 @@ export default function CourseTable({
                             <a
                               className="mr-2"
                               onClick={() => {
+                                plausible("Visit", {
+                                  props: { url: course.link },
+                                });
+
                                 if (session) {
                                   return;
                                 }

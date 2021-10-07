@@ -1,8 +1,11 @@
+import { usePlausible } from "next-plausible";
 import Image from "next/image";
 import Link from "next/link";
 import ButtonStyle from "../components/ButtonStyle";
 
 export default function LandingPage() {
+  const plausible = usePlausible();
+
   return (
     <div className="md:max-w-7xl md:mx-auto">
       <div className="flex flex-wrap border-b md:flex-nowrap md:border-0">
@@ -142,7 +145,12 @@ export default function LandingPage() {
           <div className="mt-10">
             <Link href="/courses" passHref>
               <ButtonStyle>
-                <a className="px-8 py-3 w-24">Browse Courses</a>
+                <a
+                  onClick={() => plausible("Browse Course")}
+                  className="px-8 py-3 w-24"
+                >
+                  Browse Courses
+                </a>
               </ButtonStyle>
             </Link>
           </div>
