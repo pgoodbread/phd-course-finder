@@ -193,7 +193,7 @@ export default function CourseTable({
                             <a
                               className="mr-2"
                               onClick={() => {
-                                plausible("Visit", {
+                                plausible("Visit course link", {
                                   props: { url: course.link },
                                 });
 
@@ -273,7 +273,7 @@ export default function CourseTable({
                             <a
                               className="mr-2"
                               onClick={() => {
-                                plausible("Visit", {
+                                plausible("Visit course link", {
                                   props: { url: course.link },
                                 });
 

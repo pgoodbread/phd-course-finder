@@ -1,7 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { signIn, useSession } from "next-auth/client";
-import { usePlausible } from "next-plausible";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -14,7 +13,6 @@ function classNames(...classes: string[]) {
 export default function NavBar() {
   const [session, loading] = useSession();
   const router = useRouter();
-  const plausible = usePlausible();
 
   const [navigation, setNavigation] = useState([
     { name: "Courses", href: "/courses", current: false, onlySignedIn: false },
@@ -50,11 +48,6 @@ export default function NavBar() {
       router.events.off("routeChangeStart", handleRouteChange);
     };
   }, []);
-
-  function handleSignIn() {
-    plausible("Sign In");
-    signIn();
-  }
 
   return (
     <Disclosure
@@ -103,7 +96,6 @@ export default function NavBar() {
                       .map((item) => (
                         <Link href={item.href} key={item.name}>
                           <a
-                            onClick={() => plausible(item.name)}
                             className={classNames(
                               item.current
                                 ? "text-gray-900 border-b-2 border-primary"
@@ -134,7 +126,7 @@ export default function NavBar() {
                     </span>
                     <button
                       className="border border-red-600 px-4 py-2 rounded text-red-600 hover:bg-red-600 hover:text-white focus:outline-none"
-                      onClick={handleSignIn}
+                      onClick={() => signIn()}
                     >
                       Sign Out
                     </button>
