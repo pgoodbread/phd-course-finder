@@ -9,7 +9,7 @@ import "../styles/main.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <PlausibleProvider domain="coursehub.app">
+    <PlausibleProvider domain="coursehub.app" trackOutboundLinks={true}>
       <Provider session={pageProps.session}>
         <DefaultSeo {...SEO} />
         <Head>
