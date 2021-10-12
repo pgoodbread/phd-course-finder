@@ -1,6 +1,6 @@
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
-import { signIn, useSession } from "next-auth/client";
+import { signIn, signOut, useSession } from "next-auth/client";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -115,7 +115,7 @@ export default function NavBar() {
                 {!loading && !session && router.route !== "/login" && (
                   <>
                     <ButtonStyle>
-                      <button onClick={() => signIn}>Sign In</button>
+                      <button onClick={() => signIn()}>Sign In</button>
                     </ButtonStyle>
                   </>
                 )}
@@ -126,7 +126,7 @@ export default function NavBar() {
                     </span>
                     <button
                       className="border border-red-600 px-4 py-2 rounded text-red-600 hover:bg-red-600 hover:text-white focus:outline-none"
-                      onClick={() => signIn()}
+                      onClick={() => signOut()}
                     >
                       Sign Out
                     </button>
