@@ -32,8 +32,10 @@ export default function FormInput({
           htmlFor={name}
           className="block text-sm font-medium text-gray-700 capitalize"
         >
-          {label ? label : name}{" "}
-          {!optional && <span className="text-primary font-bold">*</span>}
+          {label}
+          {label && !optional && (
+            <span className="text-primary font-bold">*</span>
+          )}
         </label>
       </div>
       <div className="mt-1 relative rounded-md shadow-sm">
@@ -43,7 +45,12 @@ export default function FormInput({
           </div>
         )}
         {!nullable ? (
-          <Field className={inputStyle} type={type} name={name} />
+          <Field
+            className={inputStyle}
+            type={type}
+            name={name}
+            placeholder={placeholder}
+          />
         ) : (
           <input
             type={type}

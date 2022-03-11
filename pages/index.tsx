@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ButtonStyle from "../components/ButtonStyle";
+import NewsletterForm from "../components/NewsletterForm";
 
 export default function LandingPage() {
   return (
@@ -125,8 +126,14 @@ export default function LandingPage() {
         </div>
       </div> */}
 
+      {/* Section Newsletter Signup */}
+
+      <div className="mt-8 px-8 pt-4 pb-4 flex flex-col items-center md:bg-white">
+        <NewsletterForm></NewsletterForm>
+      </div>
+
       {/* Section "How it works" */}
-      <div className="mx-8">
+      <div className="mt-16 px-8 pt-16 pb-12 border-gray-200 border-t">
         <div className="flex flex-col items-center mt-12 md:mt-20">
           <h3 className="text-4xl font-semibold">How It Works</h3>
           <p className="mt-7 mb-6 md:mb-0 md:w-6/12 text-gray-500 text-center leading-7">

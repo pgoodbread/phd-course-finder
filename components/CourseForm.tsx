@@ -32,10 +32,10 @@ export default function CourseForm({
     >
       {({ isSubmitting, handleBlur, handleChange, values }) => (
         <Form className="flex flex-col justify-center mt-4 md:mt-12 mx-4 md:w-1/2 md:mx-auto">
-          <FormInput name="name" type="text" />
-          <FormInput name="institution" type="text" />
-          <FormInput name="location" type="text" optional />
-          <FormInput name="lecturer" type="text" optional />
+          <FormInput name="name" type="text" label="Name" />
+          <FormInput name="institution" type="text" label="Institution" />
+          <FormInput name="location" type="text" label="Location" optional />
+          <FormInput name="lecturer" type="text" label="Lecturer" optional />
           <div className="flex flex-row justify-between">
             <FormInput
               className="w-40 md:w-1/2 mr-4 md:mr-8"
@@ -50,12 +50,13 @@ export default function CourseForm({
               type="date"
             />
           </div>
-          <FormInput name="link" type="text" />
+          <FormInput label="Link" name="link" type="text" />
 
           <div className="md:flex md:flex-row">
             <FormInput
               name="fee"
               type="number"
+              label="Fee"
               className="md:w-1/2 md:mr-8"
               nullable
               optional
@@ -65,6 +66,7 @@ export default function CourseForm({
             <FormInput
               name="credits"
               type="number"
+              label="Credits"
               className="md:w-1/2"
               nullable
               optional
