@@ -18,3 +18,11 @@ export const CourseValidation = yup.object({
 export const CourseClickValidation = yup.object({
   courseId: yup.string().required().min(3).max(200, "Too long"),
 });
+
+export const EmailValidation = yup.object({
+  email: yup
+    .string()
+    .email("Must be a valid email")
+    .max(255)
+    .required("Email is required"),
+});
