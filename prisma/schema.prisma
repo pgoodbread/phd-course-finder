@@ -49,3 +49,12 @@ model CourseClick {
 
   @@map(name: "course_clicks")
 }
+
+model NewsletterSignups {
+  id              String    @id @default(cuid())
+  email           String    @unique
+  createdAt       DateTime  @default(now()) @map(name: "created_at")
+  unsubscribedAt  DateTime? @map(name: "unsubscribed_at")
+
+  @@map(name: "newsletter_signups")
+}
