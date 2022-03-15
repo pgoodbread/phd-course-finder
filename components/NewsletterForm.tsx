@@ -1,5 +1,7 @@
+import { CheckCircleIcon } from "@heroicons/react/solid";
 import { Form, Formik, FormikHelpers } from "formik";
 import { usePlausible } from "next-plausible";
+import { useState } from "react";
 import { FormInput } from "../components";
 import { EmailValidation } from "../lib/validation";
 import ButtonStyle from "./ButtonStyle";
@@ -12,6 +14,21 @@ export default function NewsletterForm({
   initialValues?: { email: string };
 }) {
   const plausible = usePlausible();
+  const [submitted, setSubmitted] = useState(false);
+
+  const submitHandler = async (
+    values: { email: string },
+    { setSubmitting, resetForm }: FormikHelpers<{ email: string }>
+  ) => {
+    await fetch("/api/newsletter/signup", {
+      method: "POST",
+      body: JSON.stringify(values),
+    });
+    setSubmitted(true);
+    resetForm();
+    setSubmitting(false);
+  };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -41,16 +58,29 @@ export default function NewsletterForm({
                 suppressError
               />
               <div className="md:w-52">
-                <ButtonStyle>
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    onSubmit={() => plausible("Newsletter")}
-                    className="mt-0 font-bold tracking-wider"
-                  >
-                    Notify Me
+                {submitted && (
+                  <button className="w-full border border-gray-300 font-bold hover:bg-gray-50  text-gray-700 px-4 py-2 rounded mb-4 focus:outline-none text-center">
+                    <span className="flex flex-row items-center">
+                      Done!{" "}
+                      <CheckCircleIcon
+                        className="h-5 w-5 text-primary ml-2"
+                        aria-hidden="true"
+                      />
+                    </span>
                   </button>
-                </ButtonStyle>
+                )}
+                {!submitted && (
+                  <ButtonStyle>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting || submitted}
+                      onSubmit={() => plausible("Newsletter")}
+                      className="mt-0 font-bold tracking-wider"
+                    >
+                      Notify Me
+                    </button>
+                  </ButtonStyle>
+                )}
               </div>
             </div>
           </div>
@@ -59,15 +89,3 @@ export default function NewsletterForm({
     </Formik>
   );
 }
-
-const submitHandler = async (
-  values: { email: string },
-  { setSubmitting }: FormikHelpers<{ email: string }>
-) => {
-  await fetch("/api/newsletter/signup", {
-    method: "POST",
-    body: JSON.stringify(values),
-  });
-
-  setSubmitting(false);
-};
