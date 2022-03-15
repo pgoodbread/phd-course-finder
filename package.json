@@ -17,6 +17,7 @@
     "@tailwindcss/forms": "^0.3.2",
     "@types/bcrypt": "^5.0.0",
     "bcrypt": "^5.0.1",
+    "clsx": "^1.1.1",
     "dayjs": "^1.10.7",
     "formik": "^2.2.7",
     "next": "^11.1.2",

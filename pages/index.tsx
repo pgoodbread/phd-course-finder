@@ -136,11 +136,13 @@ export default function LandingPage() {
       <div className="mt-8 px-8 pt-16 pb-6 border-gray-200 border-t">
         <div className="flex flex-col items-center">
           <h3 className="text-4xl font-semibold w-full">How It Works</h3>
-          <p className="mt-4 mb-6 md:mb-0 md:w-6/12 text-gray-500 md:leading-7">
-            On our platform, institutions can offer courses on PhD and postdoc
-            level. CourseHub streamlines course access and eliminates the
-            complexity of finding the right courses.
-          </p>
+          <div className="w-full">
+            <p className="mt-4 mb-6 md:mb-0 text-gray-500 md:w-6/12 md:leading-7">
+              On our platform, institutions can offer courses on PhD and postdoc
+              level. CourseHub streamlines course access and eliminates the
+              complexity of finding the right courses.
+            </p>
+          </div>
           <div className="flex flex-col justify-center md:flex-row md:flex-nowrap md:justify-around md:mt-20 md:mb-8 md:mx-20 md:space-x-44">
             <Discover></Discover>
             <Connect></Connect>
