@@ -23,7 +23,6 @@ async function handleCreate(
   if (!bodyIsValid) {
     return response.status(422).json("Form input not valid.");
   }
-  console.log(body);
 
   await prisma.newsletterSignups.create({
     data: {
