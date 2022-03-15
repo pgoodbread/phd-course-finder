@@ -59,7 +59,10 @@ export default function NewsletterForm({
               />
               <div className="md:w-52">
                 {submitted && (
-                  <button className="w-full border border-gray-300 font-bold hover:bg-gray-50  text-gray-700 px-4 py-2 rounded mb-4 focus:outline-none text-center">
+                  <button
+                    type="button"
+                    className="w-full border border-gray-300 font-bold hover:bg-gray-50  text-gray-700 px-4 py-2 rounded mb-4 focus:outline-none text-center"
+                  >
                     <span className="flex flex-row items-center">
                       Done!{" "}
                       <CheckCircleIcon

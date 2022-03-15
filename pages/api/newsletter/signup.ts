@@ -23,6 +23,12 @@ async function handleCreate(
   if (!bodyIsValid) {
     return response.status(422).json("Form input not valid.");
   }
+  const email = await prisma.newsletterSignups.findUnique({
+    where: { email: body.email },
+  });
+
+  if (email)
+    return response.status(400).json("E-Mail Address already signed up!");
 
   await prisma.newsletterSignups.create({
     data: {
