@@ -128,15 +128,15 @@ export default function LandingPage() {
 
       {/* Section Newsletter Signup */}
 
-      <div className="mt-8 px-8 pt-4 pb-4 flex flex-col items-center md:bg-white">
+      <div className="mt-16 px-8 flex flex-col items-center md:bg-white">
         <NewsletterForm></NewsletterForm>
       </div>
 
       {/* Section "How it works" */}
-      <div className="mt-16 px-8 pt-16 pb-12 border-gray-200 border-t">
-        <div className="flex flex-col items-center mt-12 md:mt-20">
-          <h3 className="text-4xl font-semibold">How It Works</h3>
-          <p className="mt-7 mb-6 md:mb-0 md:w-6/12 text-gray-500 text-center leading-7">
+      <div className="mt-8 px-8 pt-16 pb-6 border-gray-200 border-t">
+        <div className="flex flex-col items-center">
+          <h3 className="text-4xl font-semibold w-full">How It Works</h3>
+          <p className="mt-4 mb-6 md:mb-0 md:w-6/12 text-gray-500 md:leading-7">
             On our platform, institutions can offer courses on PhD and postdoc
             level. CourseHub streamlines course access and eliminates the
             complexity of finding the right courses.
@@ -157,11 +157,11 @@ export default function LandingPage() {
       </div>
 
       {/* Section Contact */}
-      <div className="mt-16 px-8 pt-16 pb-12 bg-gray-50 flex flex-col items-center border-gray-200 border-t md:bg-white">
+      <div className="mt-12 px-8 pt-16 pb-8 bg-gray-50 flex flex-col items-center border-gray-200 border-t md:bg-white">
         <p className="text-4xl font-semibold mb-4">
           We'd love to hear from you!
         </p>
-        <p className="mt-2 text-gray-500 text-sm mb-8">
+        <p className="mt-2 text-gray-500 mb-8">
           Interested in offering courses? Questions about our platform or course
           offerings? Or just want to get in touch?
         </p>

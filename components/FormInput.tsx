@@ -10,6 +10,7 @@ export default function FormInput({
   nullable,
   value,
   handlers,
+  suppressError = false,
 }: {
   name: string;
   type: string;
@@ -18,6 +19,7 @@ export default function FormInput({
   placeholder?: string;
   optional?: boolean;
   nullable?: boolean;
+  suppressError?: boolean;
   value?: number | null | "";
   handlers?: Pick<FormikHandlers, "handleBlur" | "handleChange">;
 }) {
@@ -30,7 +32,7 @@ export default function FormInput({
       <div className="flex flex-row justify-between">
         <label
           htmlFor={name}
-          className="block text-sm font-medium text-gray-700 capitalize"
+          className="block text-sm font-medium text-gray-700 capitalize mb-1"
         >
           {label}
           {label && !optional && (
@@ -38,7 +40,7 @@ export default function FormInput({
           )}
         </label>
       </div>
-      <div className="mt-1 relative rounded-md shadow-sm">
+      <div className="relative rounded-md shadow-sm">
         {name === "fee" && (
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <span className="text-gray-500 sm:text-sm">€</span>
@@ -63,7 +65,9 @@ export default function FormInput({
           />
         )}
       </div>
-      <ErrorMessage className="text-red-600" name={name} component="div" />
+      {!suppressError && (
+        <ErrorMessage className="text-red-600" name={name} component="div" />
+      )}
     </div>
   );
 }
