@@ -24,6 +24,7 @@ export default function NewsletterForm({
       method: "POST",
       body: JSON.stringify(values),
     });
+    plausible("Newsletter");
     setSubmitted(true);
     resetForm();
     setSubmitting(false);
@@ -77,7 +78,6 @@ export default function NewsletterForm({
                     <button
                       type="submit"
                       disabled={isSubmitting || submitted}
-                      onSubmit={() => plausible("Newsletter")}
                       className="mt-0 font-bold tracking-wider"
                     >
                       Notify Me
