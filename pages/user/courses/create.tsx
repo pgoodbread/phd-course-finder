@@ -1,43 +1,34 @@
-import { User } from ".prisma/client";
-import { GetServerSidePropsContext } from "next";
-import { getSession } from "next-auth/client";
-import { useRouter } from "next/router";
+import { useState } from "react";
 import CourseForm, {
   replaceEmptyStringWithNull,
 } from "../../../components/CourseForm";
+import Notification from "../../../components/CourseSavedNotification";
 
-export default function CreateCourse({ user }: { user: User }) {
-  const router = useRouter();
-
+export default function CreateCourse() {
+  const [showNotification, setShowNotification] = useState(false);
   return (
-    <CourseForm
-      onSubmit={async (values, { setSubmitting }) => {
-        const course = replaceEmptyStringWithNull(values);
+    <>
+      <Notification
+        showNotification={showNotification}
+        dispatcher={setShowNotification}
+      ></Notification>
+      <CourseForm
+        onSubmit={async (values, { setSubmitting, resetForm }) => {
+          const course = replaceEmptyStringWithNull(values);
 
-        await fetch("/api/courses", {
-          method: "POST",
-          body: JSON.stringify(course),
-        });
+          await fetch("/api/courses", {
+            method: "POST",
+            body: JSON.stringify(course),
+          });
 
-        router.push("/user/courses");
-
-        setSubmitting(false);
-      }}
-    />
+          setSubmitting(false);
+          setShowNotification(true);
+          resetForm();
+          setTimeout(() => {
+            setShowNotification(false);
+          }, 5000);
+        }}
+      />
+    </>
   );
-}
-
-export async function getServerSideProps({ req }: GetServerSidePropsContext) {
-  const session = await getSession({ req });
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-
-  return { props: { user: session.user } };
 }
