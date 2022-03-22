@@ -1,6 +1,7 @@
 import { Course } from ".prisma/client";
 import dayjs from "dayjs";
 import { useSession } from "next-auth/client";
+import { CourseJsonLd } from "next-seo";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
@@ -183,8 +184,21 @@ export default function CourseTable({
                   {sortedAndFilteredCourses.map((course, index) => (
                     <tr
                       key={course.id}
-                      className={index % 2 !== 0 ? "bg-gray-50" : ""}
+                      className={index % 2 !== 0 ? "bg-gray-50" : undefined}
                     >
+                      <CourseJsonLd
+                        keyOverride={course.id}
+                        courseName={course.name}
+                        description={`${course.name} from ${
+                          course.lecturer
+                        } at ${course.institution} on ${dayjs(
+                          course.start
+                        ).format("DD MMM YYYY")} until ${dayjs(
+                          course.start
+                        ).format("DD MMM YYYY")}`}
+                        providerName={course.institution}
+                        providerUrl={course.link}
+                      />
                       <td className="pl-6 pr-2 py-4 whitespace-nowrap text-right text-sm font-medium md:px-6">
                         <Link href={course.link} passHref>
                           <ButtonStyle>
@@ -197,7 +211,9 @@ export default function CourseTable({
 
                                 fetch("/api/course_clicks", {
                                   method: "POST",
-                                  body: JSON.stringify({ courseId: course.id }),
+                                  body: JSON.stringify({
+                                    courseId: course.id,
+                                  }),
                                 });
                               }}
                               target="_blank"
@@ -227,12 +243,12 @@ export default function CourseTable({
                       <td className="pl-2 pr-6 py-4 md:px-6">
                         <div className="flex items-center">
                           <div>
-                            <div className="text-sm font-medium text-gray-900 truncate max-w-md">
+                            <h2 className="text-sm font-medium text-gray-900 truncate max-w-md">
                               {course.name}
-                            </div>
-                            <div className="text-sm text-gray-500 truncate max-w-md">
+                            </h2>
+                            <h3 className="text-sm text-gray-500 truncate max-w-md">
                               {course.lecturer}
-                            </div>
+                            </h3>
                           </div>
                         </div>
                       </td>
@@ -273,7 +289,9 @@ export default function CourseTable({
 
                                 fetch("/api/course_clicks", {
                                   method: "POST",
-                                  body: JSON.stringify({ courseId: course.id }),
+                                  body: JSON.stringify({
+                                    courseId: course.id,
+                                  }),
                                 });
                               }}
                               target="_blank"

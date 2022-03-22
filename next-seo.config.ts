@@ -1,9 +1,9 @@
 import { NextSeoProps } from "next-seo";
 
 const SEO: NextSeoProps = {
-  canonical: "https://coursehub.app",
   titleTemplate: "CourseHub | %s",
-  defaultTitle: "CourseHub",
+  defaultTitle: "CourseHub - Bringing Academic Courses to You",
+  canonical: "https://coursehub.app",
   twitter: {
     handle: "@CourseHub_App",
     site: "@CourseHub_App",
@@ -13,6 +13,8 @@ const SEO: NextSeoProps = {
     "Centralized platform for PhD-level courses. Spend less time searching, more time researching.",
   openGraph: {
     title: "CourseHub",
+    url: "https://coursehub.app",
+    type: "website",
     description:
       "Centralized platform for PhD-level courses. Spend less time searching, more time researching.",
     images: [

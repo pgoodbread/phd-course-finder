@@ -1,6 +1,7 @@
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { signIn, signOut, useSession } from "next-auth/client";
+import { LogoJsonLd } from "next-seo";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -85,6 +86,10 @@ export default function NavBar() {
                         height="62px"
                         src="/logo-with-text.svg"
                         alt="Workflow"
+                      />
+                      <LogoJsonLd
+                        logo="https://coursehub.app/logo-with-text.svg"
+                        url="https://coursehub.app"
                       />
                     </a>
                   </Link>
