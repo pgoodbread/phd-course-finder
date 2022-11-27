@@ -16,17 +16,16 @@ type SortConfig = {
 export default function CourseTable({
   className,
   courses,
+  initialSortConfig,
   allowEdit = false,
 }: {
   className?: string;
   courses: Course[];
+  initialSortConfig: SortConfig;
   allowEdit?: boolean;
 }) {
   const [filterInput, setFilterInput] = useState("");
-  const [sortConfig, setSortConfig] = useState<SortConfig>({
-    key: "start",
-    direction: "ascending",
-  });
+  const [sortConfig, setSortConfig] = useState<SortConfig>(initialSortConfig);
   const router = useRouter();
   const [session] = useSession();
 

@@ -11,11 +11,25 @@ export default function Home({
       <h1 className="mt-4 mx-8 text-3xl text-gray-900 font-light">
         Future Courses
       </h1>
-      <CourseTable courses={activeCourses} className="mt-4 mx-8" />
+      <CourseTable
+        courses={activeCourses}
+        initialSortConfig={{
+          key: "start",
+          direction: "ascending",
+        }}
+        className="mt-4 mx-8"
+      />
       <h1 className="mt-4 mx-8 text-3xl text-gray-900 font-light">
         Expired Courses
       </h1>
-      <CourseTable courses={previousCourses} className="mt-4 mx-8" />
+      <CourseTable
+        courses={previousCourses}
+        initialSortConfig={{
+          key: "end",
+          direction: "descending",
+        }}
+        className="mt-4 mx-8"
+      />
     </div>
   );
 }
@@ -28,7 +42,7 @@ export async function getStaticProps() {
         where: { start: { gte: new Date() }, deletedAt: null },
       }),
       previousCourses: await prisma.course.findMany({
-        orderBy: { start: "asc" },
+        orderBy: { start: "desc" },
         where: { start: { lte: new Date() }, deletedAt: null },
       }),
     },
