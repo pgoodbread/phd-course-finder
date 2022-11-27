@@ -14,8 +14,8 @@ async function seed() {
           data: [
             {
               name: "Statistical Analysis",
-              start: new Date("2022-07-17"),
-              end: new Date("2022-07-19"),
+              start: new Date("2032-07-17"),
+              end: new Date("2032-07-19"),
               institution: "HAW",
               lecturer: "Jane Doe",
               location: "Hamburg",
@@ -25,15 +25,15 @@ async function seed() {
             },
             {
               name: "Operations Research",
-              start: new Date("2022-03-01"),
-              end: new Date("2022-03-05"),
+              start: new Date("2032-03-01"),
+              end: new Date("2032-03-05"),
               institution: "KLU",
               link: "https://www.google.de",
             },
             {
               name: "Distributed Systems",
               start: new Date("2020-01-30"),
-              end: new Date("2022-02-02"),
+              end: new Date("2032-02-02"),
               institution: "HAW",
               lecturer: "James Rautman",
               location: "Sydney",
@@ -58,8 +58,8 @@ async function seed() {
           data: [
             {
               name: "Application of Artificial Intelligence",
-              start: new Date("2022-06-02"),
-              end: new Date("2022-06-04"),
+              start: new Date("2032-06-02"),
+              end: new Date("2032-06-04"),
               institution: "HAW",
               lecturer: "John Doe",
               link: "https://www.google.de",
