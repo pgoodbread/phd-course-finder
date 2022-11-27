@@ -7,7 +7,15 @@ import prisma from "../../../lib/prisma";
 export default function Courses({ courses }: { courses: Course[] }) {
   return (
     <div className="flex flex-col mt-12">
-      <CourseTable allowEdit={true} className="mt-4 mx-8" courses={courses} />
+      <CourseTable
+        allowEdit={true}
+        initialSortConfig={{
+          key: "start",
+          direction: "ascending",
+        }}
+        className="mt-4 mx-8"
+        courses={courses}
+      />
     </div>
   );
 }
